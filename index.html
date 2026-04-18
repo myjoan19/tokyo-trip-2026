@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 東京自由行 4/28-5/3</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #d9dde3;
+      --paper: #fbfaf8;
+      --white: #fff;
+      --green: #16705b;
+      --red: #c53b3d;
+      --teal: #0b6f8a;
+      --gold: #ad7a00;
+      --violet: #6f4bb8;
+      --shadow: 0 10px 28px rgba(32, 33, 36, .10);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      align-items: end;
+      padding: 28px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, .70) 82%),
+        url("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1800&q=82") center / cover;
+      color: #fff;
+    }
+
+    .hero-inner {
+      width: min(1080px, 100%);
+      margin: 0 auto 24px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-weight: 750;
+      letter-spacing: 0;
+      color: #f5d46d;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.15rem, 7vw, 5rem);
+      line-height: 1.05;
+      max-width: 11ch;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 18px 0 0;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+      letter-spacing: 0;
+    }
+
+    p { margin: 0 0 12px; }
+    .muted { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-body { padding: 18px; }
+    .photo {
+      height: 210px;
+      background: #d8e3df;
+    }
+
+    .flight-row,
+    .hotel-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .flight-row:first-child,
+    .hotel-row:first-child { border-top: 0; }
+
+    .label {
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .tabs {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 12px 0;
+      background: rgba(251, 250, 248, .96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tab {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: var(--radius);
+      padding: 9px 12px;
+      font: inherit;
+      font-weight: 750;
+      cursor: pointer;
+      min-width: 92px;
+    }
+
+    .tab[aria-selected="true"] {
+      color: #fff;
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .day {
+      display: none;
+      padding-top: 24px;
+    }
+
+    .day.active { display: block; }
+
+    .day-head {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+
+    .day-title {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 2px 10px;
+      margin-bottom: 10px;
+      border-radius: var(--radius);
+      color: #fff;
+      background: var(--teal);
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--red);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .time {
+      font-weight: 850;
+      color: var(--red);
+      white-space: nowrap;
+    }
+
+    .route {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border: 1px solid #cfd8d4;
+      border-radius: var(--radius);
+      background: #f6fbf8;
+    }
+
+    .route strong { color: var(--green); }
+
+    .map-frame {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 260px;
+      border: 0;
+    }
+
+    .map-link {
+      display: inline-flex;
+      margin-top: 8px;
+      color: var(--teal);
+      font-weight: 800;
+    }
+
+    .note-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .note {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 14px;
+    }
+
+    .note b {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .source {
+      font-size: .92rem;
+    }
+
+    .source a {
+      color: var(--teal);
+      font-weight: 750;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 4px 8px;
+      background: #fff;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .print-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border: 0;
+      border-radius: var(--radius);
+      padding: 10px 16px;
+      background: var(--violet);
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        min-height: 86vh;
+        padding: 20px;
+      }
+
+      main {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .grid,
+      .day-head,
+      .note-list {
+        grid-template-columns: 1fr;
+      }
+
+      .flight-row,
+      .hotel-row,
+      .item {
+        grid-template-columns: 1fr;
+      }
+
+      .photo { height: 190px; }
+      .time { white-space: normal; }
+    }
+
+    @media print {
+      .hero { min-height: auto; color: #000; background: none; padding: 0; }
+      .tabs, .print-button { display: none; }
+      main { width: 100%; }
+      section { break-inside: avoid; }
+      .day { display: block; }
+      .card, .item, .note, .day-title { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">2026/4/28 - 2026/5/3</p>
+      <h1>東京六天五夜行程</h1>
+      <p>住宿：HOTEL KOMACHI Higashi Nippori。交通以日本電車、地鐵、單軌/新交通系統為主，5/1 富士山保留你已規劃的安排。</p>
+      <div class="pill-row">
+        <span class="pill">成田 T2 進出</span>
+        <span class="pill">日暮里住宿</span>
+        <span class="pill">每日切換</span>
+        <span class="pill">手機友善</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>航班與住宿</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=1200&q=82" alt="機場航廈與飛機">
+          </div>
+          <div class="card-body">
+            <h3>航班資料</h3>
+            <div class="flight-row">
+              <div class="label">去程</div>
+              <div>
+                <b>2026/4/28（二）10:40 TPE 桃園機場 T1 → 15:05 NRT 成田機場 T2</b>
+                <p class="muted">建議桃園機場 08:10-08:40 抵達。抵達成田後抓 60-90 分鐘入境、領行李、買票。</p>
+              </div>
+            </div>
+            <div class="flight-row">
+              <div class="label">回程</div>
+              <div>
+                <b>2026/5/3（日）14:10 NRT 成田機場 T2 → 16:50 TPE 桃園機場 T1</b>
+                <p class="muted">建議 11:10-11:30 抵達成田 T2，時間比較從容。</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=1200&q=82" alt="東京街景與電車">
+          </div>
+          <div class="card-body">
+            <h3>住宿資料</h3>
+            <div class="hotel-row">
+              <div class="label">飯店</div>
+              <div><b>HOTEL KOMACHI Higashi Nippori</b></div>
+            </div>
+            <div class="hotel-row">
+              <div class="label">地址</div>
+              <div>5-9-3 Higashi-Nippori, Arakawa-ku, Tokyo</div>
+            </div>
+            <div class="hotel-row">
+              <div class="label">最近車站</div>
+              <div>日暮里站約步行 10-12 分鐘；鶯谷站、三河島站也可步行抵達。</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>每日行程</h2>
+      <div class="tabs" role="tablist" aria-label="每日行程切換">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="day-0428" id="tab-0428">4/28 抵達</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-0429" id="tab-0429">4/29 淺草</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-0430" id="tab-0430">4/30 皇居</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-0501" id="tab-0501">5/1 富士山</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-0502" id="tab-0502">5/2 台場</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-0503" id="tab-0503">5/3 回程</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-running" id="tab-running">跑站備註</button>
+      </div>
+
+      <article class="day active" role="tabpanel" id="day-0428" aria-labelledby="tab-0428">
+        <div class="day-head">
+          <div class="day-title">
+            <span class="tagline">抵達日：成田到日暮里</span>
+            <h2>4/28（二）抵達東京、入住、上野晚餐</h2>
+            <p class="muted">這天不要排太滿，重點是順利進市區、放行李、吃一餐好好休息。</p>
+          </div>
+          <div class="card photo">
+            <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&w=1200&q=82" alt="東京夜晚街景">
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">15:05</div>
+            <div>
+              <h3>抵達成田機場 T2</h3>
+              <p>入境、領行李、整理網卡或 Suica/PASMO。抓 60-90 分鐘比較安心。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">16:30</div>
+            <div>
+              <h3>成田機場 T2 → 日暮里</h3>
+              <div class="route"><strong>快線推薦：</strong>成田機場第 2・第 3 航廈站搭「京成 Skyliner」→ 日暮里站，約 36-41 分鐘，對號座，行李最輕鬆。</div>
+              <div class="route"><strong>省錢版：</strong>同站搭京成本線「特急 / Access 特急方向列車」→ 日暮里站，約 70-85 分鐘，免轉車或少轉車，現場看月台資訊。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">17:20</div>
+            <div>
+              <h3>日暮里站 → 飯店</h3>
+              <p>從日暮里站南改札或東口方向出站，步行約 10-12 分鐘到 HOTEL KOMACHI Higashi Nippori。</p>
+              <div class="route"><strong>地址：</strong>5-9-3 Higashi-Nippori, Arakawa-ku, Tokyo。若行李很多，這段可視情況改搭計程車，但本行程主軸仍以電車為主。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">19:00</div>
+            <div>
+              <h3>上野阿美橫町晚餐</h3>
+              <p>輕鬆逛街、吃居酒屋、拉麵或燒肉。</p>
+              <div class="route"><strong>交通：</strong>日暮里站搭 JR 山手線 → 上野站，約 4 分鐘；回程同路線回日暮里，再步行回飯店。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day" role="tabpanel" id="day-0429" aria-labelledby="tab-0429">
+        <div class="day-head">
+          <div class="day-title">
+            <span class="tagline">東東京經典</span>
+            <h2>4/29（三）淺草、晴空塔、上野、谷中</h2>
+            <p class="muted">住日暮里很適合把淺草、上野、谷中排同一天，交通短、回飯店也快。</p>
+          </div>
+          <div class="card photo">
+            <img src="https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?auto=format&fit=crop&w=1200&q=82" alt="淺草寺與燈籠">
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">09:00</div>
+            <div>
+              <h3>飯店 → 淺草寺、仲見世通</h3>
+              <p>先拍雷門，再慢慢走仲見世通、淺草寺。</p>
+              <div class="route"><strong>交通：</strong>飯店步行約 12-15 分鐘到入谷站 → 東京 Metro 日比谷線到上野站 → 轉銀座線到淺草站，全程約 20-30 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">12:00</div>
+            <div>
+              <h3>淺草午餐</h3>
+              <p>推薦方向：天丼、鰻魚飯、蕎麥麵、炸牛排。熱門店排隊長，午餐提早一點比較順。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">13:30</div>
+            <div>
+              <h3>東京晴空塔、Solamachi</h3>
+              <p>逛商場、買伴手禮，天氣好再上展望台。</p>
+              <div class="route"><strong>交通：</strong>淺草站搭都營淺草線 → 押上站，約 3 分鐘；出站連通晴空塔城。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">16:30</div>
+            <div>
+              <h3>上野公園、阿美橫町或谷中銀座</h3>
+              <p>想逛街選上野，想散步拍街景選谷中銀座。</p>
+              <div class="route"><strong>交通：</strong>押上站搭都營淺草線回淺草 → 轉銀座線到上野；或上野搭 JR 山手線到日暮里後步行去谷中銀座。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">20:00</div>
+            <div>
+              <h3>回飯店</h3>
+              <div class="route"><strong>交通：</strong>上野站搭 JR 山手線 → 日暮里站約 4 分鐘，或從谷中銀座步行到日暮里站後回飯店。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day" role="tabpanel" id="day-0430" aria-labelledby="tab-0430">
+        <div class="day-head">
+          <div class="day-title">
+            <span class="tagline">晨間運動與西東京</span>
+            <h2>4/30（四）皇居外圍運動、原宿、表參道、澀谷、新宿</h2>
+            <p class="muted">清晨先去皇居外圍運動約 3 小時，回飯店梳洗後再出發逛西東京，節奏會比較舒服。</p>
+          </div>
+          <div class="card photo">
+            <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=82" alt="澀谷街頭">
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">06:25</div>
+            <div>
+              <h3>飯店 → 東京ミッドタウン日比谷 MB1F</h3>
+              <p>先到日比谷寄放行李、換跑步衣服，再前往皇居外苑。因為此處 7:00 才開門，建議不用太早抵達。</p>
+              <div class="route"><strong>交通：</strong>飯店步行到日暮里站約 10-12 分鐘 → 搭 JR 山手線到有樂町站，約 15-18 分鐘 → 步行到東京ミッドタウン日比谷 MB1F，約 6-8 分鐘。</div>
+              <div class="route"><strong>跑步準備點：</strong>東京都千代田区有楽町一丁目1番2号 東京ミッドタウン日比谷 MB1F。平日 7:00-22:00，最終受付 21:00；土日祝 7:00-20:00，最終受付 19:00；定休日なし。<a href="https://www.raffine-rs.com/shop-neo" target="_blank" rel="noreferrer">查看跑站官方網站</a></div>
+              <div class="map-frame" aria-label="東京ミッドタウン日比谷地圖">
+                <iframe
+                  title="東京ミッドタウン日比谷地圖"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=139.7557%2C35.6702%2C139.7642%2C35.6764&layer=mapnik&marker=35.6734%2C139.7597">
+                </iframe>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%83%83%E3%83%89%E3%82%BF%E3%82%A6%E3%83%B3%E6%97%A5%E6%AF%94%E8%B0%B7+MB1F" target="_blank" rel="noreferrer">用 Google Maps 開啟東京ミッドタウン日比谷 MB1F</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">07:05</div>
+            <div>
+              <h3>換裝、寄放行李</h3>
+              <p>把非跑步用品寄放好，換上跑步衣服。貴重物品、護照與現金請隨身或依現場置物規則保管。</p>
+              <div class="route"><strong>前往皇居：</strong>東京ミッドタウン日比谷 → 步行到日比谷公園、皇居外苑、二重橋前一帶，約 10-15 分鐘。</div>
+              <div class="map-frame" aria-label="皇居外苑地圖">
+                <iframe
+                  title="皇居外苑地圖"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=139.7475%2C35.6742%2C139.7666%2C35.6868&layer=mapnik&marker=35.6805%2C139.7580">
+                </iframe>
+              </div>
+              <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kokyo+Gaien+National+Garden+Tokyo" target="_blank" rel="noreferrer">用 Google Maps 開啟皇居外苑</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">07:20</div>
+            <div>
+              <h3>皇居外圍運動</h3>
+              <p>預計運動約 3 小時。建議以皇居外苑、二重橋前、櫻田門、竹橋一帶作為路線範圍，沿途路面平整、早晨人較少。</p>
+              <div class="route"><strong>建議節奏：</strong>07:20-08:10 慢跑或快走暖身；08:10-09:50 皇居外圍 1-2 圈；09:50-10:20 緩和、拍照、補水。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">10:25</div>
+            <div>
+              <h3>回東京ミッドタウン日比谷取物、換裝</h3>
+              <p>跑完先回寄放點取回行李、換下跑步衣物，再回飯店梳洗。若現場可使用淋浴設備，也可以視體力在此先整理。</p>
+              <div class="route"><strong>交通：</strong>皇居外苑、日比谷公園一帶步行回東京ミッドタウン日比谷 MB1F，約 10-15 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">11:00</div>
+            <div>
+              <h3>東京ミッドタウン日比谷 → 飯店</h3>
+              <p>回飯店梳洗、換衣服、吃簡單早午餐。若運動後比較累，後面行程可以從原宿直接跳到澀谷，不一定硬塞所有點。</p>
+              <div class="route"><strong>交通：</strong>步行到有樂町站約 6-8 分鐘 → JR 山手線到日暮里站，約 15-18 分鐘 → 步行回飯店約 10-12 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">13:00</div>
+            <div>
+              <h3>飯店 → 明治神宮、原宿</h3>
+              <p>回飯店整理後再出門，先走明治神宮森林參道，再到竹下通或原宿周邊午餐。</p>
+              <div class="route"><strong>交通：</strong>飯店步行到日暮里站 → JR 山手線外回り到原宿站，約 30 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">14:30</div>
+            <div>
+              <h3>原宿、竹下通、表參道</h3>
+              <p>竹下通吃甜點，表參道逛選物與咖啡。兩地步行銜接即可。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">16:45</div>
+            <div>
+              <h3>澀谷 Scramble、宮下公園、PARCO</h3>
+              <p>澀谷適合安排下午到晚餐前，拍街景、逛品牌店。</p>
+              <div class="route"><strong>交通：</strong>表參道站搭東京 Metro 銀座線、半藏門線或副都心線 → 澀谷站，約 2-4 分鐘；也可步行約 20 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">19:30</div>
+            <div>
+              <h3>新宿晚餐、歌舞伎町周邊</h3>
+              <p>想看夜景可加東京都廳展望室；若運動後體力不夠，可以把新宿取消，改在澀谷吃完直接回飯店。</p>
+              <div class="route"><strong>交通：</strong>澀谷站搭 JR 山手線 → 新宿站，約 7 分鐘；回程新宿站搭 JR 山手線 → 日暮里站，約 35 分鐘。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day" role="tabpanel" id="day-0501" aria-labelledby="tab-0501">
+        <div class="day-head">
+          <div class="day-title">
+            <span class="tagline">保留既有規劃</span>
+            <h2>5/1（五）富士山一日行程</h2>
+            <p class="muted">你已經有富士山規劃，這裡只放東京市區到集合點的提醒，避免跟既有安排衝突。</p>
+          </div>
+          <div class="card photo">
+            <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1200&q=82" alt="富士山">
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">出發前</div>
+            <div>
+              <h3>確認集合站與集合時間</h3>
+              <p>富士山團常見集合地是新宿、東京站或上野。請以前一天晚上收到的集合通知為準。</p>
+              <div class="route"><strong>若集合在新宿：</strong>日暮里站搭 JR 山手線 → 新宿站，約 35 分鐘。</div>
+              <div class="route"><strong>若集合在東京站：</strong>日暮里站搭 JR 山手線 → 東京站，約 12-15 分鐘。</div>
+              <div class="route"><strong>若集合在上野：</strong>日暮里站搭 JR 山手線 → 上野站，約 4 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">全天</div>
+            <div>
+              <h3>富士山、河口湖或周邊景點</h3>
+              <p>依你已規劃的行程執行。建議帶外套，山區早晚溫差比東京市區明顯。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">回東京後</div>
+            <div>
+              <h3>簡單晚餐、早點休息</h3>
+              <p>隔天還有台場與銀座，富士山回來不建議再排遠距離夜遊。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day" role="tabpanel" id="day-0502" aria-labelledby="tab-0502">
+        <div class="day-head">
+          <div class="day-title">
+            <span class="tagline">海灣線與購物</span>
+            <h2>5/2（六）築地、銀座、台場、東京塔夜景</h2>
+            <p class="muted">把吃、買、海景與夜景放同一天，最後一整天很有收尾感。</p>
+          </div>
+          <div class="card photo">
+            <img src="https://images.unsplash.com/photo-1505069446780-4ef442b5207f?auto=format&fit=crop&w=1200&q=82" alt="東京灣與彩虹橋">
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">09:00</div>
+            <div>
+              <h3>飯店 → 築地場外市場</h3>
+              <p>早餐吃海鮮丼、玉子燒、炸物小吃。週末人多，早點到比較舒服。</p>
+              <div class="route"><strong>交通：</strong>步行到入谷站 → 東京 Metro 日比谷線到築地站，約 20 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">11:30</div>
+            <div>
+              <h3>銀座逛街</h3>
+              <p>銀座 Six、Uniqlo Ginza、Loft、百貨公司都集中，適合補買伴手禮。</p>
+              <div class="route"><strong>交通：</strong>築地步行到銀座約 12-18 分鐘；或築地站搭日比谷線到東銀座站。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">14:30</div>
+            <div>
+              <h3>台場、DiverCity、Aqua City</h3>
+              <p>看海景、彩虹橋、鋼彈，購物與餐廳選擇多。</p>
+              <div class="route"><strong>交通：</strong>銀座站搭東京 Metro 銀座線 → 新橋站，轉百合海鷗線 Yurikamome → 台場站或台場海濱公園站，約 30-40 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">18:30</div>
+            <div>
+              <h3>東京塔夜景</h3>
+              <p>想拍東京塔可到赤羽橋、芝公園一帶；不想加點就留在台場看夜景也很好。</p>
+              <div class="route"><strong>交通：</strong>台場搭百合海鷗線到汐留站 → 轉都營大江戶線到赤羽橋站，約 35-45 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">21:00</div>
+            <div>
+              <h3>回飯店</h3>
+              <div class="route"><strong>交通：</strong>赤羽橋站搭都營大江戶線到上野御徒町站 → 步行到御徒町站搭 JR 山手線到日暮里站，再步行回飯店。</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day" role="tabpanel" id="day-0503" aria-labelledby="tab-0503">
+        <div class="day-head">
+          <div class="day-title">
+            <span class="tagline">回程日</span>
+            <h2>5/3（日）退房、日暮里到成田 T2</h2>
+            <p class="muted">14:10 起飛，建議不要排遠行程。早餐後整理行李，直接往機場最穩。</p>
+          </div>
+          <div class="card photo">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=82" alt="飛機機翼與天空">
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">09:00</div>
+            <div>
+              <h3>早餐、整理行李</h3>
+              <p>可在飯店周邊便利商店、咖啡店簡單吃，或到日暮里站附近覓食。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">10:10</div>
+            <div>
+              <h3>飯店 → 日暮里站</h3>
+              <p>步行約 10-12 分鐘。行李多就提早 10 分鐘出門。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">10:45</div>
+            <div>
+              <h3>日暮里 → 成田機場 T2</h3>
+              <div class="route"><strong>快線推薦：</strong>日暮里站搭京成 Skyliner → 成田機場第 2・第 3 航廈站，約 36-41 分鐘。</div>
+              <div class="route"><strong>省錢版：</strong>京成本線特急方向列車回成田機場，約 70-85 分鐘。若搭省錢版，建議 09:45-10:00 就從飯店出發。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">11:30</div>
+            <div>
+              <h3>抵達成田 T2</h3>
+              <p>辦理報到、托運行李、安檢、出境。14:10 起飛時間很剛好，建議不要壓線。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day" role="tabpanel" id="day-running" aria-labelledby="tab-running">
+        <div class="day-head">
+          <div class="day-title">
+            <span class="tagline">4/30 皇居跑步備案</span>
+            <h2>皇居周邊跑站三家備註</h2>
+            <p class="muted">早上跑步最適合用東京ミッドタウン日比谷 NEO 店或 Otemachi One 店。MEGALOS 店平日 16:00 才開，4/30 早上不適合當作寄放與換裝點。</p>
+          </div>
+          <div class="card photo">
+            <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1200&q=82" alt="跑步鞋與運動裝備">
+          </div>
+        </div>
+
+        <div class="note-list">
+          <div class="note">
+            <b>推薦 1：東京ミッドタウン日比谷 NEO 店</b>
+            <p>離日比谷公園、櫻田門、二重橋前一帶很近，最適合接你原本排的皇居外苑跑步路線。</p>
+            <p><strong>營業時間：</strong>平日 7:00-22:00，最終受付 21:00；土日祝 7:00-20:00，最終受付 19:00；定休日なし。</p>
+            <p><strong>地址：</strong>東京都千代田区有楽町一丁目1番2号 東京ミッドタウン日比谷 MB1F。</p>
+            <a class="map-link" href="https://www.raffine-rs.com/shop-neo" target="_blank" rel="noreferrer">官方網站</a>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%83%83%E3%83%89%E3%82%BF%E3%82%A6%E3%83%B3%E6%97%A5%E6%AF%94%E8%B0%B7+MB1F" target="_blank" rel="noreferrer">Google Maps</a>
+          </div>
+
+          <div class="note">
+            <b>推薦 2：Otemachi One 店</b>
+            <p>靠近大手町、皇居東側與竹橋方向。若你想從大手町側開始跑，這家也很順；從飯店過去也不算遠。</p>
+            <p><strong>營業時間：</strong>平日 7:00-22:00，最終受付 21:00；土日祝 7:00-20:00，最終受付 19:00；定休日なし。</p>
+            <p><strong>地址：</strong>東京都千代田区大手町一丁目2-1 Otemachi One B1F。</p>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Otemachi+One+B1F+Raffine+Running+Style" target="_blank" rel="noreferrer">Google Maps</a>
+          </div>
+
+          <div class="note">
+            <b>備案：MEGALOS 店</b>
+            <p>位置也在日比谷一帶，離東京ミッドタウン日比谷 NEO 店很近，但平日早上不營業，所以不適合 4/30 早晨使用。</p>
+            <p><strong>營業時間：</strong>平日 16:00-22:00，最終受付 21:00；休日 7:30-18:00，最終受付 17:00。</p>
+            <p><strong>定休日：</strong>每月 5 日、15 日、25 日、29 日。</p>
+            <p><strong>地址：</strong>東京都千代田区有楽町 1-2-2 日比谷シャンテ別館 B1F・B2F スポーツクラブメガロス日比谷シャンテ内。</p>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%AF%94%E8%B0%B7%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%86%E5%88%A5%E9%A4%A8+MEGALOS" target="_blank" rel="noreferrer">Google Maps</a>
+          </div>
+        </div>
+
+        <div class="timeline" style="margin-top: 16px;">
+          <div class="item">
+            <div class="time">結論</div>
+            <div>
+              <h3>哪家比較近？</h3>
+              <p>以你目前排的皇居外苑、日比谷公園、二重橋前路線來看，<strong>東京ミッドタウン日比谷 NEO 店最順</strong>。Otemachi One 店適合改從大手町、竹橋或皇居東側開始跑。MEGALOS 店位置也近，但 4/30 是平日，早上無法使用。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>交通票券與提醒</h2>
+      <div class="note-list">
+        <div class="note">
+          <b>成田進出</b>
+          <p>Skyliner 最適合帶行李往返日暮里，速度快且座位固定。若想省錢，京成本線特急可用時間換預算。</p>
+        </div>
+        <div class="note">
+          <b>市區交通</b>
+          <p>東京 Metro、都營地鐵、JR 山手線都會用到。只買 Subway Ticket 時，JR 山手線不含在內，進出日暮里常仍需刷 IC 卡。</p>
+        </div>
+        <div class="note">
+          <b>行李策略</b>
+          <p>4/28 抵達先進飯店。5/3 回程不要排遠點，日暮里到成田的路線很順，留足機場時間最重要。</p>
+        </div>
+      </div>
+      <div class="pill-row">
+        <button class="print-button" onclick="window.print()">列印 / 存成 PDF</button>
+      </div>
+    </section>
+
+    <section class="source">
+      <h2>查詢依據</h2>
+      <p>交通時間會因當日班次與施工調整，出發前請再用 Google Maps、Japan Transit Planner 或車站公告確認。</p>
+      <p>參考：<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/us/traffic/skyliner_0226.php" target="_blank" rel="noreferrer">京成 Skyliner 路線與時刻資訊</a>、<a href="https://www.tokyometro.jp/en/ticket/travel/index.html" target="_blank" rel="noreferrer">Tokyo Subway Ticket 官方資訊</a>、<a href="https://www.hotels.com/ho3818400832/hotel-komachi-higashi-nippori/" target="_blank" rel="noreferrer">HOTEL KOMACHI Higashi Nippori 周邊車站資訊</a>。</p>
+    </section>
+  </main>
+
+  <script>
+    const tabs = [...document.querySelectorAll(".tab")];
+    const panels = [...document.querySelectorAll(".day")];
+
+    function activate(tab) {
+      tabs.forEach((item) => item.setAttribute("aria-selected", String(item === tab)));
+      panels.forEach((panel) => panel.classList.toggle("active", panel.id === tab.getAttribute("aria-controls")));
+      history.replaceState(null, "", "#" + tab.getAttribute("aria-controls"));
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => activate(tab));
+    });
+
+    const initial = location.hash ? document.querySelector(`[aria-controls="${location.hash.slice(1)}"]`) : null;
+    if (initial) activate(initial);
+  </script>
+</body>
+</html>
