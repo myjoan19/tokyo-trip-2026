@@ -39,10 +39,10 @@
     }
 
     .hero {
-      min-height: 88vh;
+      min-height: 360px;
       display: grid;
       align-items: end;
-      padding: 28px;
+      padding: 24px;
       background:
         linear-gradient(180deg, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, .70) 82%),
         url("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1800&q=82") center / cover;
@@ -51,7 +51,7 @@
 
     .hero-inner {
       width: min(1080px, 100%);
-      margin: 0 auto 24px;
+      margin: 0 auto 10px;
     }
 
     .eyebrow {
@@ -63,16 +63,16 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(2.15rem, 7vw, 5rem);
+      font-size: clamp(2rem, 5vw, 3.8rem);
       line-height: 1.05;
-      max-width: 11ch;
+      max-width: 12ch;
       letter-spacing: 0;
     }
 
     .hero p {
       max-width: 760px;
-      margin: 18px 0 0;
-      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin: 14px 0 0;
+      font-size: clamp(1rem, 1.7vw, 1.12rem);
     }
 
     main {
@@ -265,6 +265,14 @@
       margin-top: 16px;
     }
 
+    .section-label {
+      margin: 22px 0 8px;
+      font-size: 1.12rem;
+      font-weight: 850;
+      color: var(--ink);
+      letter-spacing: 0;
+    }
+
     .note {
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -276,6 +284,11 @@
       display: block;
       color: var(--gold);
       margin-bottom: 4px;
+    }
+
+    .important {
+      color: var(--red);
+      font-weight: 850;
     }
 
     .source {
@@ -321,8 +334,8 @@
 
     @media (max-width: 780px) {
       .hero {
-        min-height: 86vh;
-        padding: 20px;
+        min-height: 300px;
+        padding: 18px;
       }
 
       main {
@@ -360,13 +373,6 @@
     <div class="hero-inner">
       <p class="eyebrow">2026/4/28 - 2026/5/3</p>
       <h1>東京六天五夜行程</h1>
-      <p>住宿：HOTEL KOMACHI Higashi Nippori。交通以日本電車、地鐵、單軌/新交通系統為主，5/1 富士山保留你已規劃的安排。</p>
-      <div class="pill-row">
-        <span class="pill">成田 T2 進出</span>
-        <span class="pill">日暮里住宿</span>
-        <span class="pill">每日切換</span>
-        <span class="pill">手機友善</span>
-      </div>
     </div>
   </header>
 
@@ -374,7 +380,7 @@
     <section>
       <h2>行程頁簽</h2>
       <div class="tabs" role="tablist" aria-label="每日行程切換">
-        <button class="tab" role="tab" aria-selected="true" aria-controls="day-info" id="tab-info">航班住宿</button>
+        <button class="tab" role="tab" aria-selected="true" aria-controls="day-info" id="tab-info">交通/住宿資訊</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-0428" id="tab-0428">4/28 抵達</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-0429" id="tab-0429">4/29 淺草</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-0430" id="tab-0430">4/30 皇居</button>
@@ -432,6 +438,39 @@
           </article>
         </div>
 
+        <h3 class="section-label">台中到桃園機場客運</h3>
+        <div class="note-list">
+          <div class="note">
+            <b>台中車站上車：座位與票號</b>
+            <p><strong>座位 11：</strong>票號 126041400900561000077921。</p>
+            <p><strong>座位 9：</strong>票號 126041400900561000077829。</p>
+            <p><strong>狀態：</strong>未取票。</p>
+          </div>
+
+          <div class="note">
+            <b>台中車站上車：取票資訊</b>
+            <p><strong>上車站：</strong>台中車站。</p>
+            <p><strong>下車站：</strong>一航站。</p>
+            <p class="important"><strong>乘車時間：</strong>2026/4/28 06:01。</p>
+            <p><strong>訂單編號：</strong>100260414162657817。</p>
+            <p><strong>訂票代碼：</strong>B4220294T。</p>
+            <p><strong>取票數字：</strong>220294。</p>
+            <p>已完成付款，需至統聯臨櫃取票，不適用便利商店取票。</p>
+          </div>
+
+          <div class="note">
+            <b>朝馬站上車</b>
+            <p><strong>上車站：</strong>朝馬站（朝富路）。</p>
+            <p><strong>下車站：</strong>一航站。</p>
+            <p class="important"><strong>乘車時間：</strong>2026/4/28 06:06。</p>
+            <p><strong>車次：</strong>1623（A）朝馬、桃園機場。</p>
+            <p><strong>座位：</strong>自由選位。</p>
+            <p><strong>訂票代碼：</strong>BB19820924。</p>
+            <p><strong>取票數字：</strong>092471。</p>
+          </div>
+        </div>
+
+        <h3 class="section-label">日本交通 IC 卡：Welcome Suica</h3>
         <div class="note-list">
           <div class="note">
             <b>西瓜卡建議：Welcome Suica</b>
