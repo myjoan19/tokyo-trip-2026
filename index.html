@@ -332,6 +332,34 @@
       cursor: pointer;
     }
 
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 20;
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--green);
+      color: #fff;
+      font: inherit;
+      font-size: 1.25rem;
+      font-weight: 850;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
     @media (max-width: 780px) {
       .hero {
         min-height: 300px;
@@ -360,7 +388,7 @@
 
     @media print {
       .hero { min-height: auto; color: #000; background: none; padding: 0; }
-      .tabs, .print-button { display: none; }
+      .tabs, .print-button, .back-to-top { display: none; }
       main { width: 100%; }
       section { break-inside: avoid; }
       .day { display: block; }
@@ -1037,9 +1065,12 @@
     </section>
   </main>
 
+  <button class="back-to-top" type="button" aria-label="回到最上方">↑</button>
+
   <script>
     const tabs = [...document.querySelectorAll(".tab")];
     const panels = [...document.querySelectorAll(".day")];
+    const backToTop = document.querySelector(".back-to-top");
 
     function activate(tab) {
       tabs.forEach((item) => item.setAttribute("aria-selected", String(item === tab)));
@@ -1053,6 +1084,14 @@
 
     const initial = location.hash ? document.querySelector(`[aria-controls="${location.hash.slice(1)}"]`) : null;
     if (initial) activate(initial);
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 420);
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   </script>
 </body>
 </html>
