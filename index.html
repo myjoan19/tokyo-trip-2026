@@ -337,17 +337,18 @@
       align-items: start;
     }
 
-    #day-food .food-grid {
-      display: grid;
-      grid-template-columns: 1.3fr .9fr .9fr;
-      gap: 12px;
+    #day-food .timeline {
       margin-top: 16px;
     }
 
-    #day-food .food-stack {
+    #day-food .item.note-ramen,
+    #day-food .item.note-izakaya,
+    #day-food .item.note-dessert,
+    #day-food .item.note-yakiniku {
       display: grid;
-      gap: 12px;
-      align-content: start;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      align-items: start;
     }
 
     .note b {
@@ -446,18 +447,11 @@
         grid-template-columns: 1fr;
       }
 
-      #day-food .food-grid,
-      #day-food .food-stack {
-        display: grid;
+      #day-food .item.note-ramen,
+      #day-food .item.note-izakaya,
+      #day-food .item.note-dessert,
+      #day-food .item.note-yakiniku {
         grid-template-columns: 1fr;
-      }
-
-      #day-food .note-ramen,
-      #day-food .note-izakaya,
-      #day-food .note-dessert,
-      #day-food .note-yakiniku {
-        grid-column: auto;
-        grid-row: auto;
       }
 
       .flight-row,
@@ -901,15 +895,23 @@
             </div>
           </div>
           <div class="item">
-            <div class="time">16:45</div>
+            <div class="time">16:30</div>
             <div>
-              <h3>澀谷 Scramble、宮下公園、PARCO</h3>
-              <p>澀谷適合安排下午到晚餐前，拍街景、逛品牌店。</p>
-              <div class="route"><strong>交通：</strong><span class="station">表參道站</span>搭東京 Metro 銀座線、半藏門線或副都心線 → <span class="station">澀谷站</span>，約 2-4 分鐘；也可步行約 20 分鐘。</div>
+              <h3>六義園散步</h3>
+              <p>如果下午想排一個比較安靜的庭園景點，可以把六義園加進來，和上午皇居運動、原宿表參道的節奏很不一樣。</p>
+              <div class="route"><strong>交通：</strong>從<span class="station">原宿站</span>搭 JR 山手線到<span class="station">駒込站</span>，約 18-22 分鐘；再步行約 7 分鐘可到六義園。若覺得當天體力普通，這段也可以直接略過，改去澀谷就好。</div>
             </div>
           </div>
           <div class="item">
-            <div class="time">19:30</div>
+            <div class="time">18:00</div>
+            <div>
+              <h3>澀谷 Scramble、宮下公園、PARCO</h3>
+              <p>澀谷適合安排傍晚到晚餐前，拍街景、逛品牌店。</p>
+              <div class="route"><strong>交通：</strong>從<span class="station">駒込站</span>搭 JR 山手線到<span class="station">澀谷站</span>，約 27-32 分鐘；若沒有去六義園，也可照原本從表參道直接進澀谷。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">20:00</div>
             <div>
               <h3>新宿晚餐、歌舞伎町周邊</h3>
               <p>想看夜景可加東京都廳展望室；若運動後體力不夠，可以把新宿取消，改在澀谷吃完直接回飯店。</p>
@@ -1127,42 +1129,52 @@
         <h2>美食</h2>
         <p class="muted">用分類整理店名與地址，直接查就好。</p>
 
-        <div class="food-grid">
-          <div class="note note-ramen">
-            <b>拉麵</b>
-            <div class="route"><strong>1. AFURI 原宿：</strong>東京都渋谷区千駄ヶ谷3-63-1 グランデフォレスタ 1F。</div>
-            <div class="route"><strong>2. 銀座篝 Kagari 銀座本店：</strong>東京都中央区銀座6-4-12 銀座Aビル1F。</div>
-            <div class="route"><strong>3. 拉麵屋 金色不如歸：</strong>東京都新宿区新宿2-4-1 第22宮庭マンション1F。</div>
-            <div class="route"><strong>4. 東京入鹿TOKYO 六本木店：</strong>東京都中央區銀座3-14-2。</div>
-            <div class="route"><strong>5. 鴨 to 蔥（らーめん 鴨to葱）：</strong>東京都品川區南大井6-11-10。</div>
-            <div class="route"><strong>6. Japanese Soba Noodles 蔦：</strong>東京都渋谷区西原3-2-4 フロンティア代々木上原B1。</div>
-            <div class="route"><strong>7. 銀座八五：</strong>東京都中央區銀座3-14-2。</div>
-            <div class="route"><strong>8. RAMEN TATSUNOYA 龍の家拉麵：</strong>東京都新宿区西新宿7-4-5 富士野ビル 1F。</div>
-            <div class="route"><strong>9. 麵創房 無敵家：</strong>東京豊島区南池袋1丁目17-1 崎本ビル1F。</div>
-            <div class="route"><strong>10. Ramen Afro Beats：</strong>東京都新宿區新宿1-16-10。</div>
-            <div class="route"><strong>11. 風雲兒：</strong>東京都渋谷区代々木2-14-3 北斗第一ビルB1F。</div>
-            <div class="route"><strong>12. 中華拉麵 多賀野：</strong>東京都品川区中延2-15-10。</div>
-            <a class="map-link" href="https://www.klook.com/zh-TW/blog/ramen-tokyo/" target="_blank" rel="noreferrer">Klook 東京 10 家拉麵整理</a>
-            <a class="map-link" href="https://www.afuri.com/findus/" target="_blank" rel="noreferrer">AFURI 官方店舖資訊</a>
-            <a class="map-link" href="https://www.bring-you.info/zh-tw/ginzakagari" target="_blank" rel="noreferrer">銀座 篝 銀座本店介紹</a>
+        <div class="timeline">
+          <div class="item note-ramen">
+            <div class="time">拉麵</div>
+            <div>
+              <h3>拉麵清單</h3>
+              <div class="route"><strong>1. AFURI 原宿：</strong>東京都渋谷区千駄ヶ谷3-63-1 グランデフォレスタ 1F。</div>
+              <div class="route"><strong>2. 銀座篝 Kagari 銀座本店：</strong>東京都中央区銀座6-4-12 銀座Aビル1F。</div>
+              <div class="route"><strong>3. 拉麵屋 金色不如歸：</strong>東京都新宿区新宿2-4-1 第22宮庭マンション1F。</div>
+              <div class="route"><strong>4. 東京入鹿TOKYO 六本木店：</strong>東京都中央區銀座3-14-2。</div>
+              <div class="route"><strong>5. 鴨 to 蔥（らーめん 鴨to葱）：</strong>東京都品川區南大井6-11-10。</div>
+              <div class="route"><strong>6. Japanese Soba Noodles 蔦：</strong>東京都渋谷区西原3-2-4 フロンティア代々木上原B1。</div>
+              <div class="route"><strong>7. 銀座八五：</strong>東京都中央區銀座3-14-2。</div>
+              <div class="route"><strong>8. RAMEN TATSUNOYA 龍の家拉麵：</strong>東京都新宿区西新宿7-4-5 富士野ビル 1F。</div>
+              <div class="route"><strong>9. 麵創房 無敵家：</strong>東京豊島区南池袋1丁目17-1 崎本ビル1F。</div>
+              <div class="route"><strong>10. Ramen Afro Beats：</strong>東京都新宿區新宿1-16-10。</div>
+              <div class="route"><strong>11. 風雲兒：</strong>東京都渋谷区代々木2-14-3 北斗第一ビルB1F。</div>
+              <div class="route"><strong>12. 中華拉麵 多賀野：</strong>東京都品川区中延2-15-10。</div>
+              <a class="map-link" href="https://www.klook.com/zh-TW/blog/ramen-tokyo/" target="_blank" rel="noreferrer">Klook 東京 10 家拉麵整理</a>
+              <a class="map-link" href="https://www.afuri.com/findus/" target="_blank" rel="noreferrer">AFURI 官方店舖資訊</a>
+              <a class="map-link" href="https://www.bring-you.info/zh-tw/ginzakagari" target="_blank" rel="noreferrer">銀座 篝 銀座本店介紹</a>
+            </div>
           </div>
 
-          <div class="food-stack">
-            <div class="note note-izakaya">
-              <b>居酒屋</b>
+          <div class="item note-izakaya">
+            <div class="time">居酒屋</div>
+            <div>
+              <h3>居酒屋清單</h3>
               <div class="route"><strong>塚田農場 新宿東口店：</strong>東京都新宿區新宿3-23-2 新宿サンビル地下1F。</div>
               <a class="map-link" href="https://shop.tsukadanojo.jp/detail/49/" target="_blank" rel="noreferrer">塚田農場 新宿東口站前店官方資訊</a>
             </div>
+          </div>
 
-            <div class="note note-dessert">
-              <b>點心</b>
+          <div class="item note-dessert">
+            <div class="time">點心</div>
+            <div>
+              <h3>點心清單</h3>
               <div class="route"><strong>HARBS：</strong>分店很多，之後可再依新宿、銀座、上野周邊分店補地址。主打水果千層蛋糕、下午茶、甜點。</div>
             </div>
           </div>
 
-          <div class="note note-yakiniku">
-            <b>燒肉</b>
-            <div class="route"><strong>叙々苑：</strong>分店未定，之後可再依新宿、銀座、上野周邊分店補地址。主打商業午餐，中午通常比晚餐更划算。</div>
+          <div class="item note-yakiniku">
+            <div class="time">燒肉</div>
+            <div>
+              <h3>燒肉清單</h3>
+              <div class="route"><strong>叙々苑：</strong>分店未定，之後可再依新宿、銀座、上野周邊分店補地址。主打商業午餐，中午通常比晚餐更划算。</div>
+            </div>
           </div>
         </div>
       </article>
