@@ -236,6 +236,11 @@
 
     .route strong { color: var(--green); }
 
+    .station {
+      color: var(--red);
+      font-weight: 800;
+    }
+
     .map-frame {
       margin-top: 12px;
       border: 1px solid var(--line);
@@ -256,6 +261,27 @@
       margin-top: 8px;
       color: var(--teal);
       font-weight: 800;
+    }
+
+    .note-figure {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .note-figure img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .note-figure figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .92rem;
     }
 
     .note-list {
@@ -408,14 +434,15 @@
     <section>
       <h2>行程頁簽</h2>
       <div class="tabs" role="tablist" aria-label="每日行程切換">
-        <button class="tab" role="tab" aria-selected="true" aria-controls="day-info" id="tab-info">交通/住宿資訊</button>
+        <button class="tab" role="tab" aria-selected="true" aria-controls="day-info" id="tab-info">交通/住宿</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-0428" id="tab-0428">4/28 抵達</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="day-0429" id="tab-0429">4/29 淺草</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-0429" id="tab-0429">4/29 阿美橫/川越</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-0430" id="tab-0430">4/30 皇居</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-0501" id="tab-0501">5/1 富士山</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-0502" id="tab-0502">5/2 台場</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-0503" id="tab-0503">5/3 回程</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="day-shopping" id="tab-shopping">購物藥妝</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-food" id="tab-food">美食</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="day-shopping" id="tab-shopping">購物</button>
         <button class="tab" role="tab" aria-selected="false" aria-controls="day-running" id="tab-running">跑站備註</button>
       </div>
 
@@ -459,8 +486,12 @@
                 <div>5-9-3 Higashi-Nippori, Arakawa-ku, Tokyo</div>
               </div>
               <div class="hotel-row">
-                <div class="label">最近車站</div>
-                <div>日暮里站約步行 10-12 分鐘；鶯谷站、三河島站也可步行抵達。</div>
+                <div class="label">電話</div>
+                <div>03-4500-7087</div>
+              </div>
+              <div class="hotel-row">
+              <div class="label">最近車站</div>
+              <div><span class="station">鶯谷站</span>約步行 6-8 分鐘；<span class="station">日暮里站</span>約步行 10-12 分鐘；<span class="station">入谷站</span>約步行 12-13 分鐘；<span class="station">三河島站</span>也可步行抵達。</div>
               </div>
             </div>
           </article>
@@ -469,16 +500,16 @@
         <h3 class="section-label">台中到桃園機場客運</h3>
         <div class="note-list">
           <div class="note">
-            <b>台中車站上車：座位與票號</b>
+              <b><span class="station">台中車站</span>上車：座位與票號</b>
             <p><strong>座位 11：</strong>票號 126041400900561000077921。</p>
             <p><strong>座位 9：</strong>票號 126041400900561000077829。</p>
             <p><strong>狀態：</strong>未取票。</p>
           </div>
 
           <div class="note">
-            <b>台中車站上車：取票資訊</b>
-            <p><strong>上車站：</strong>台中車站。</p>
-            <p><strong>下車站：</strong>一航站。</p>
+              <b><span class="station">台中車站</span>上車：取票資訊</b>
+              <p><strong>上車站：</strong><span class="station">台中車站</span>。</p>
+              <p><strong>下車站：</strong><span class="station">一航站</span>。</p>
             <p class="important"><strong>乘車時間：</strong>2026/4/28 06:01。</p>
             <p><strong>訂單編號：</strong>100260414162657817。</p>
             <p><strong>訂票代碼：</strong>B4220294T。</p>
@@ -487,9 +518,9 @@
           </div>
 
           <div class="note">
-            <b>朝馬站上車</b>
-            <p><strong>上車站：</strong>朝馬站（朝富路）。</p>
-            <p><strong>下車站：</strong>一航站。</p>
+              <b><span class="station">朝馬站</span>上車</b>
+              <p><strong>上車站：</strong><span class="station">朝馬站</span>（朝富路）。</p>
+              <p><strong>下車站：</strong><span class="station">一航站</span>。</p>
             <p class="important"><strong>乘車時間：</strong>2026/4/28 06:06。</p>
             <p><strong>車次：</strong>1623（A）朝馬、桃園機場。</p>
             <p><strong>座位：</strong>自由選位。</p>
@@ -504,19 +535,20 @@
             <b>西瓜卡建議：Welcome Suica</b>
             <p>這趟 4/28-5/3 共 6 天，建議抵達成田後辦 Welcome Suica。它是給短期旅客使用的 IC 卡，可搭 JR、東京 Metro、都營地鐵、巴士，也可在部分便利商店購物。</p>
             <p><strong>效期：</strong>購買日起 28 天。<strong>押金：</strong>免押金。</p>
+            <p><strong>4/28 抵達後：</strong>成田機場 T2 入境後可直接購買；接著搭 Skyliner 到<span class="station">日暮里站</span>，再轉 JR 山手線一站到<span class="station">鶯谷站</span>。</p>
+            <p><strong>儲值：</strong>可用現金儲值，最高餘額 20,000 日圓；也可在 7-Eleven 的 Seven Bank ATM 儲值。餘額不能退，最後一天不要儲太多。</p>
+            <p><strong>建議先儲：</strong>3,000-5,000 日圓。地鐵、JR、便利商店小額付款都很實用；購買時拿到的 Reference Paper 也建議留著。</p>
             <a class="map-link" href="https://www.jreast.co.jp/multi/en/welcomesuica/purchase.html" target="_blank" rel="noreferrer">JR East Welcome Suica 官方資訊</a>
           </div>
 
           <div class="note">
-            <b>4/28 抵達後在哪裡買</b>
-            <p>你抵達的是 NRT 成田機場 T2。入境領行李後，前往「成田空港第2・第3ターミナル駅 / Narita Airport Terminal 2・3 Station」，可找 Welcome Suica 售票機或 JR EAST Travel Service Center。</p>
-            <p><strong>建議流程：</strong>入境 → 領行李 → 買 Welcome Suica → 買 Skyliner 或京成電車票 → 前往日暮里。</p>
-          </div>
-
-          <div class="note">
-            <b>儲值與注意事項</b>
-            <p>Welcome Suica 可用現金儲值，最高餘額 20,000 日圓；也可在 7-Eleven 的 Seven Bank ATM 儲值。餘額不能退，最後一天不要儲太多。</p>
-            <p><strong>建議先儲：</strong>3,000-5,000 日圓。地鐵、JR、便利商店小額付款都很實用。購買時拿到的 Reference Paper 要留著，必要時站務員會看。</p>
+            <b>JR 東京都市地區周遊券（Tokunai Pass）</b>
+            <p>這張票是 JR 東日本的東京 23 區內 1 日券，適合當天會密集搭 JR 山手線或其他 JR 路線在市區內移動的人。</p>
+            <p><strong>票價：</strong>大人 870 日圓。<strong>效期：</strong>1 天。</p>
+            <p><strong>可搭範圍：</strong>東京 23 區內的 JR 普通列車（含快速）普通車廂非指定座席，可不限次數搭乘。</p>
+            <p><strong>注意：</strong>這張票不包含東京 Metro、都營地鐵、京成電鐵，也不包含 Skyliner。你這份行程如果當天主要跑 JR 線，例如 <span class="station">鶯谷站</span>、<span class="station">上野站</span>、<span class="station">新宿站</span>、<span class="station">澀谷站</span>這種移動很多，才比較值得考慮；若同一天會混搭地鐵，通常還是刷 Welcome Suica 比較直覺。</p>
+           <a class="map-link" href="https://www.jreast.co.jp/zh-CHT/multi/pass/tokunai_pass.html" target="_blank" rel="noreferrer">JR 東日本東京都市地區周遊券官方資訊</a>
+           <a class="map-link" href="https://nicklee.tw/2557/jr-tokunai-pass/" target="_blank" rel="noreferrer">補充參考：小氣少年的 Tokunai Pass 圖解</a>
           </div>
 
           <div class="note">
@@ -530,9 +562,9 @@
       <article class="day" role="tabpanel" id="day-0428" aria-labelledby="tab-0428">
         <div class="day-head">
           <div class="day-title">
-            <span class="tagline">抵達日：成田到日暮里</span>
-            <h2>4/28（二）抵達東京、入住、上野晚餐</h2>
-            <p class="muted">這天不要排太滿，重點是順利進市區、放行李、吃一餐好好休息。</p>
+            <span class="tagline">抵達日：成田到鶯谷</span>
+            <h2>4/28（二）抵達東京、入住、新宿晚餐、東京都廳夜景</h2>
+            <p class="muted">這天不要排太滿，重點是順利進市區、放行李，晚上到新宿吃晚餐後順遊都廳南展望室。</p>
           </div>
           <div class="card photo">
             <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&w=1200&q=82" alt="東京夜晚街景">
@@ -549,25 +581,38 @@
           <div class="item">
             <div class="time">16:30</div>
             <div>
-              <h3>成田機場 T2 → 日暮里</h3>
-              <div class="route"><strong>快線推薦：</strong>成田機場第 2・第 3 航廈站搭「京成 Skyliner」→ 日暮里站，約 36-41 分鐘，對號座，行李最輕鬆。</div>
-              <div class="route"><strong>省錢版：</strong>同站搭京成本線「特急 / Access 特急方向列車」→ 日暮里站，約 70-85 分鐘，免轉車或少轉車，現場看月台資訊。</div>
+              <h3>成田機場 T2 → <span class="station">日暮里站</span> → <span class="station">鶯谷站</span></h3>
+              <div class="route"><strong>建議路線：</strong><span class="station">成田機場第 2・第 3 航廈站</span>搭「京成 Skyliner」→ <span class="station">日暮里站</span>，約 36-41 分鐘；再轉 JR 山手線，一站到<span class="station">鶯谷站</span>。</div>
+              <div class="route"><strong>補充：</strong>Skyliner 這段最快、最穩；到<span class="station">日暮里站</span>後轉乘很短，適合帶行李進市區。</div>
             </div>
           </div>
           <div class="item">
             <div class="time">17:20</div>
             <div>
-              <h3>日暮里站 → 飯店</h3>
-              <p>從日暮里站南改札或東口方向出站，步行約 10-12 分鐘到 HOTEL KOMACHI Higashi Nippori。</p>
+              <h3><span class="station">鶯谷站</span> → 飯店</h3>
+              <p>從<span class="station">鶯谷站</span>出站後步行前往 HOTEL KOMACHI Higashi Nippori，約 8-12 分鐘；若當下行李較多，也可改從<span class="station">日暮里站</span>步行過去。</p>
               <div class="route"><strong>地址：</strong>5-9-3 Higashi-Nippori, Arakawa-ku, Tokyo。若行李很多，這段可視情況改搭計程車，但本行程主軸仍以電車為主。</div>
             </div>
           </div>
           <div class="item">
             <div class="time">19:00</div>
             <div>
-              <h3>上野阿美橫町晚餐</h3>
-              <p>輕鬆逛街、吃居酒屋、拉麵或燒肉。</p>
-              <div class="route"><strong>交通：</strong>日暮里站搭 JR 山手線 → 上野站，約 4 分鐘；回程同路線回日暮里，再步行回飯店。</div>
+              <h3>晚餐：塚田農場 新宿東口店</h3>
+              <p>居酒屋</p>
+              <div class="route"><strong>交通：</strong>飯店步行回<span class="station">鶯谷站</span>約 8-12 分鐘 → 搭 JR 山手線外回り到<span class="station">新宿站</span>，約 24-28 分鐘 → 從東口步行約 1 分鐘到塚田農場 新宿東口店。</div>
+              <div class="route"><strong>店家資訊：</strong>東京都新宿區新宿3-23-2 新宿サンビル地下1F。官方頁面標示 JR <span class="station">新宿站</span>東口步行 1 分鐘、<span class="station">西武新宿站</span>南口步行 3 分鐘。</div>
+              <a class="map-link" href="https://shop.tsukadanojo.jp/detail/49/" target="_blank" rel="noreferrer">塚田農場 新宿東口站前店官方資訊</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">20:45</div>
+            <div>
+              <h3>晚餐後：東京都廳南展望室看夜景</h3>
+              <p>吃完可直接到都廳南展望室看夜景，免費入場，夜景視野很好。</p>
+              <div class="route"><strong>交通：</strong>餐廳步行回<span class="station">新宿站周邊</span>後，建議直接步行約 18-22 分鐘到東京都廳第一本廳舍；若想少走路，可從<span class="station">新宿站周邊</span>轉<span class="station">都營大江戶線</span>到<span class="station">都廳前站</span>，出站即達。</div>
+              <div class="route"><strong>備註：</strong>東京都官方資訊顯示，南展望室位於第一本廳舍 45 樓，最晚入室 21:30；<span class="station">都廳前站</span>可直結，從 <span class="station">JR 新宿站西口</span>步行約 10 分鐘也可到達。</div>
+              <a class="map-link" href="https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou" target="_blank" rel="noreferrer">東京都廳南展望室官方資訊</a>
+              <a class="map-link" href="https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/shisetsu" target="_blank" rel="noreferrer">東京都廳交通案內</a>
             </div>
           </div>
         </div>
@@ -576,9 +621,9 @@
       <article class="day" role="tabpanel" id="day-0429" aria-labelledby="tab-0429">
         <div class="day-head">
           <div class="day-title">
-            <span class="tagline">東東京經典</span>
-            <h2>4/29（三）淺草、晴空塔、上野、谷中</h2>
-            <p class="muted">住日暮里很適合把淺草、上野、谷中排同一天，交通短、回飯店也快。</p>
+            <span class="tagline">雙方案：市區或近郊</span>
+            <h2>4/29（三）阿美橫町 / 川越</h2>
+            <p class="muted">這天可以保留東京市區版，也可以改走川越近郊版，兩個方案放在同一頁方便比較。</p>
           </div>
           <div class="card photo">
             <img src="https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?auto=format&fit=crop&w=1200&q=82" alt="淺草寺與燈籠">
@@ -586,26 +631,33 @@
         </div>
         <div class="timeline">
           <div class="item">
+            <div class="time">行程一</div>
+            <div>
+              <h3>阿美橫町、上野、谷中</h3>
+              <p>如果想留在東京市區，就照這條輕鬆逛街路線走，交通短、也方便隨時回飯店。</p>
+            </div>
+          </div>
+          <div class="item">
             <div class="time">09:00</div>
             <div>
-              <h3>飯店 → 淺草寺、仲見世通</h3>
-              <p>先拍雷門，再慢慢走仲見世通、淺草寺。</p>
-              <div class="route"><strong>交通：</strong>飯店步行約 12-15 分鐘到入谷站 → 東京 Metro 日比谷線到上野站 → 轉銀座線到淺草站，全程約 20-30 分鐘。</div>
+              <h3>飯店 → 阿美橫町</h3>
+              <p>早上先去阿美橫町逛街、看藥妝、零食與伴手禮，也可以順便感受上野一帶白天的市場氣氛。</p>
+              <div class="route"><strong>交通：</strong>飯店步行到<span class="station">鶯谷站</span> → 搭 JR 山手線到<span class="station">上野站</span>，約 2 分鐘；出站後步行可到阿美橫町。</div>
             </div>
           </div>
           <div class="item">
             <div class="time">12:00</div>
             <div>
-              <h3>淺草午餐</h3>
-              <p>推薦方向：天丼、鰻魚飯、蕎麥麵、炸牛排。熱門店排隊長，午餐提早一點比較順。</p>
+              <h3>阿美橫町午餐</h3>
+              <p>可在阿美橫或上野周邊吃丼飯、炸物、拉麵、燒肉或居酒屋定食。想吃得輕鬆一點，也很適合直接在這區解決午餐。</p>
             </div>
           </div>
           <div class="item">
             <div class="time">13:30</div>
             <div>
-              <h3>東京晴空塔、Solamachi</h3>
-              <p>逛商場、買伴手禮，天氣好再上展望台。</p>
-              <div class="route"><strong>交通：</strong>淺草站搭都營淺草線 → 押上站，約 3 分鐘；出站連通晴空塔城。</div>
+              <h3>上野公園、上野周邊</h3>
+              <p>午餐後可以接上野公園、美術館外圍散步，或繼續逛上野周邊商場、伴手禮店。</p>
+              <div class="route"><strong>交通：</strong>阿美橫町與上野公園步行可接起來，基本上不用再搭車。</div>
             </div>
           </div>
           <div class="item">
@@ -613,14 +665,53 @@
             <div>
               <h3>上野公園、阿美橫町或谷中銀座</h3>
               <p>想逛街選上野，想散步拍街景選谷中銀座。</p>
-              <div class="route"><strong>交通：</strong>押上站搭都營淺草線回淺草 → 轉銀座線到上野；或上野搭 JR 山手線到日暮里後步行去谷中銀座。</div>
+              <div class="route"><strong>交通：</strong>若繼續留在上野可直接步行接續；若想改去谷中銀座，可從上野周邊轉往谷中方向，再視位置回飯店。</div>
             </div>
           </div>
           <div class="item">
             <div class="time">20:00</div>
             <div>
               <h3>回飯店</h3>
-              <div class="route"><strong>交通：</strong>上野站搭 JR 山手線 → 日暮里站約 4 分鐘，或從谷中銀座步行到日暮里站後回飯店。</div>
+              <div class="route"><strong>交通：</strong><span class="station">上野站</span>搭 JR 山手線 → <span class="station">鶯谷站</span>約 2 分鐘；若人在谷中銀座，也可依當下位置步行回飯店。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">行程二</div>
+            <div>
+              <h3>川越近郊散步版</h3>
+              <p>如果想改去近郊，可走川越老街、小江戶街景這條線。這版比較像半日到一日的小旅行。</p>
+              <div class="route"><strong>交通：</strong><span class="station">鶯谷站</span> → <span class="station">池袋站</span> → 轉東武鐵道特急，約 25 分鐘可到川越方向。</div>
+              <div class="route"><strong>票券：</strong>川越周遊券 710 円，可先列為這天方案二的交通備選。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">09:00</div>
+            <div>
+              <h3>飯店 → <span class="station">池袋站</span> → 川越</h3>
+              <p>早上從飯店出發，先搭 JR 到<span class="station">池袋站</span>，再轉東武鐵道前往川越。</p>
+              <div class="route"><strong>交通：</strong><span class="station">鶯谷站</span>搭 JR 山手線到<span class="station">池袋站</span>，再轉東武鐵道特急約 25 分鐘。</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">11:00</div>
+            <div>
+              <h3>川越老街、小江戶散步</h3>
+              <p>可逛藏造老街、時之鐘、菓子屋橫丁，整體步調比較悠閒，也很適合拍照。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">13:00</div>
+            <div>
+              <h3>川越午餐</h3>
+              <p>可在川越老街附近找鰻魚飯、定食、甜點或地瓜點心，當作近郊版的中午休息。</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">16:30</div>
+            <div>
+              <h3>回東京</h3>
+              <p>下午慢慢回東京即可，晚上保留彈性，回飯店或去上野周邊簡單吃晚餐都可以。</p>
+              <div class="route"><strong>交通：</strong>川越 → 東武鐵道回<span class="station">池袋站</span> → JR 山手線回<span class="station">鶯谷站</span>。</div>
             </div>
           </div>
         </div>
@@ -643,7 +734,7 @@
             <div>
               <h3>飯店 → 東京ミッドタウン日比谷 MB1F</h3>
               <p>先到日比谷寄放行李、換跑步衣服，再前往皇居外苑。因為此處 7:00 才開門，建議不用太早抵達。</p>
-              <div class="route"><strong>交通：</strong>飯店步行到日暮里站約 10-12 分鐘 → 搭 JR 山手線到有樂町站，約 15-18 分鐘 → 步行到東京ミッドタウン日比谷 MB1F，約 6-8 分鐘。</div>
+              <div class="route"><strong>交通：</strong>飯店步行到<span class="station">鶯谷站</span>約 8-12 分鐘 → 搭 JR 山手線到<span class="station">有樂町站</span>，約 18-22 分鐘 → 步行到東京ミッドタウン日比谷 MB1F，約 6-8 分鐘。</div>
               <div class="route"><strong>跑步準備點：</strong>東京都千代田区有楽町一丁目1番2号 東京ミッドタウン日比谷 MB1F。平日 7:00-22:00，最終受付 21:00；土日祝 7:00-20:00，最終受付 19:00；定休日なし。<a href="https://www.raffine-rs.com/shop-neo" target="_blank" rel="noreferrer">查看跑站官方網站</a></div>
               <div class="map-frame" aria-label="東京ミッドタウン日比谷地圖">
                 <iframe
@@ -694,7 +785,7 @@
             <div>
               <h3>東京ミッドタウン日比谷 → 飯店</h3>
               <p>回飯店梳洗、換衣服、吃簡單早午餐。若運動後比較累，後面行程可以從原宿直接跳到澀谷，不一定硬塞所有點。</p>
-              <div class="route"><strong>交通：</strong>步行到有樂町站約 6-8 分鐘 → JR 山手線到日暮里站，約 15-18 分鐘 → 步行回飯店約 10-12 分鐘。</div>
+              <div class="route"><strong>交通：</strong>步行到<span class="station">有樂町站</span>約 6-8 分鐘 → JR 山手線到<span class="station">鶯谷站</span>，約 18-22 分鐘 → 步行回飯店約 8-12 分鐘。</div>
             </div>
           </div>
           <div class="item">
@@ -702,11 +793,21 @@
             <div>
               <h3>飯店 → 明治神宮、原宿</h3>
               <p>回飯店整理後再出門，先走明治神宮森林參道，再到竹下通或原宿周邊午餐。</p>
-              <div class="route"><strong>交通：</strong>飯店步行到日暮里站 → JR 山手線外回り到原宿站，約 30 分鐘。</div>
+              <div class="route"><strong>交通：</strong>飯店步行到<span class="station">鶯谷站</span> → JR 山手線外回り到<span class="station">原宿站</span>，約 28-32 分鐘。</div>
             </div>
           </div>
           <div class="item">
-            <div class="time">14:30</div>
+            <div class="time">14:00</div>
+            <div>
+              <h3>午餐：AFURI 原宿</h3>
+              <p>中午直接安排阿夫利拉麵，原宿這天的動線最順。推薦先吃招牌柚子鹽拉麵或柚子醬油拉麵。</p>
+              <div class="route"><strong>交通：</strong>從<span class="station">原宿站</span>、竹下通周邊步行約 5-8 分鐘可到 AFURI 原宿。</div>
+              <div class="route"><strong>店家資訊：</strong>AFURI 官方店舖頁標示原宿店位於東京都渋谷区千駄ヶ谷3-63-1 グランデフォレスタ 1F，營業時間 10:00-23:00。</div>
+              <a class="map-link" href="https://www.afuri.com/findus/" target="_blank" rel="noreferrer">AFURI 官方店舖資訊</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="time">15:15</div>
             <div>
               <h3>原宿、竹下通、表參道</h3>
               <p>竹下通吃甜點，表參道逛選物與咖啡。兩地步行銜接即可。</p>
@@ -717,7 +818,7 @@
             <div>
               <h3>澀谷 Scramble、宮下公園、PARCO</h3>
               <p>澀谷適合安排下午到晚餐前，拍街景、逛品牌店。</p>
-              <div class="route"><strong>交通：</strong>表參道站搭東京 Metro 銀座線、半藏門線或副都心線 → 澀谷站，約 2-4 分鐘；也可步行約 20 分鐘。</div>
+              <div class="route"><strong>交通：</strong><span class="station">表參道站</span>搭東京 Metro 銀座線、半藏門線或副都心線 → <span class="station">澀谷站</span>，約 2-4 分鐘；也可步行約 20 分鐘。</div>
             </div>
           </div>
           <div class="item">
@@ -725,7 +826,7 @@
             <div>
               <h3>新宿晚餐、歌舞伎町周邊</h3>
               <p>想看夜景可加東京都廳展望室；若運動後體力不夠，可以把新宿取消，改在澀谷吃完直接回飯店。</p>
-              <div class="route"><strong>交通：</strong>澀谷站搭 JR 山手線 → 新宿站，約 7 分鐘；回程新宿站搭 JR 山手線 → 日暮里站，約 35 分鐘。</div>
+              <div class="route"><strong>交通：</strong><span class="station">澀谷站</span>搭 JR 山手線 → <span class="station">新宿站</span>，約 7 分鐘；回程<span class="station">新宿站</span>搭 JR 山手線 → <span class="station">鶯谷站</span>，約 32-36 分鐘。</div>
             </div>
           </div>
         </div>
@@ -748,16 +849,16 @@
             <div>
               <h3>飯店出發，前往集合點</h3>
               <p>集合時請認 JRT 旗子，並準備好 KKday 電子憑證。請至少提早 10 分鐘抵達，遲到通常無法退費。</p>
-              <div class="route"><strong>建議集合點：JR 東京站丸之內北口。</strong>5/1 是平日，KKday 頁面標示平日 09:00 集合。飯店步行到日暮里站 → JR 山手線到東京站，約 12-15 分鐘 → 站內步行到丸之內北口。</div>
-              <div class="route"><strong>備用集合點：新宿西口三井住友銀行。</strong>平日 09:30 集合。日暮里站搭 JR 山手線到新宿站，約 35 分鐘。若你的憑證指定新宿，請改走這個集合點。</div>
+              <div class="route"><strong>建議集合點：JR <span class="station">東京站</span>丸之內北口。</strong>5/1 是平日，KKday 頁面標示平日 09:00 集合。飯店步行到<span class="station">鶯谷站</span> → JR 山手線到<span class="station">東京站</span>，約 16-20 分鐘 → 站內步行到丸之內北口。</div>
+              <div class="route"><strong>備用集合點：新宿西口三井住友銀行。</strong>平日 09:30 集合。<span class="station">鶯谷站</span>搭 JR 山手線到<span class="station">新宿站</span>，約 32-36 分鐘。若你的憑證指定新宿，請改走這個集合點。</div>
               <a class="map-link" href="https://www.kkday.com/zh-tw/product/150665-mount-fuji-tour-lake-kawaguchi-tenjozan-park-ropeway-tokyo?cid=4904&ud1=detail-share&ud2=app-ios" target="_blank" rel="noreferrer">開啟 KKday 行程頁</a>
             </div>
           </div>
           <div class="item">
             <div class="time">09:00</div>
             <div>
-              <h3>JR 東京站丸之內北口集合</h3>
-              <p>平日 09:00 東京站集合；若你選新宿集合，則是平日 09:30 新宿西口三井住友銀行集合。集合點以你的訂單憑證為準。</p>
+              <h3>JR <span class="station">東京站</span>丸之內北口集合</h3>
+              <p>平日 09:00 <span class="station">東京站</span>集合；若你選新宿集合，則是平日 09:30 新宿西口三井住友銀行集合。集合點以你的訂單憑證為準。</p>
               <div class="route"><strong>注意：</strong>此團交通方式為集合點出發的巴士或車輛，不是自行搭地鐵到富士山。市區到集合點的交通仍以 JR/地鐵為主。</div>
             </div>
           </div>
@@ -794,15 +895,18 @@
             <div class="time">18:00</div>
             <div>
               <h3>返回東京</h3>
-              <p>預計 18:00 返回新宿西口三井住友銀行，18:30 返回 JR 東京站丸之內北口。實際時間會受天氣與塞車影響，不建議安排晚上的預約行程。</p>
-              <div class="route"><strong>回飯店：</strong>若回到東京站，搭 JR 山手線到日暮里站約 12-15 分鐘，再步行回飯店。若回到新宿，搭 JR 山手線到日暮里站約 35 分鐘，再步行回飯店。</div>
+              <p>預計 18:00 返回新宿西口三井住友銀行，18:30 返回 JR <span class="station">東京站</span>丸之內北口。實際時間會受天氣與塞車影響，不建議安排晚上的預約行程。</p>
+              <div class="route"><strong>回飯店：</strong>若回到<span class="station">東京站</span>，搭 JR 山手線到<span class="station">鶯谷站</span>約 16-20 分鐘，再步行回飯店。若回到新宿，搭 JR 山手線到<span class="station">鶯谷站</span>約 32-36 分鐘，再步行回飯店。</div>
             </div>
           </div>
           <div class="item">
             <div class="time">晚上</div>
             <div>
               <h3>簡單晚餐、早點休息</h3>
-              <p>富士山一日遊車程長，回東京後建議在東京站、新宿或日暮里簡單吃飯。隔天還有築地、銀座與台場，不建議再排遠距離夜遊。</p>
+              <p>富士山一日遊車程長，回東京後建議在<span class="station">東京站</span>、新宿或<span class="station">鶯谷站</span>周邊簡單吃飯。隔天還有淺草寺、隅田川水上巴士與台場，不建議再排遠距離夜遊。</p>
+              <div class="route"><strong>想吃拉麵可選：</strong>若你這天是回到<span class="station">東京站</span>，可以考慮順路去吃「銀座 篝 銀座本店」。店址是東京都中央区銀座6-4-12 銀座Aビル1F，主打雞白湯拉麵，不能訂位，通常需要排隊。</div>
+              <div class="route"><strong>動線：</strong><span class="station">東京站</span>周邊前往銀座一帶比從新宿過去順很多；若當天實際回到新宿，建議就近吃晚餐，不必特地繞去銀座。</div>
+              <a class="map-link" href="https://www.bring-you.info/zh-tw/ginzakagari" target="_blank" rel="noreferrer">銀座 篝 銀座本店介紹</a>
             </div>
           </div>
         </div>
@@ -811,9 +915,9 @@
       <article class="day" role="tabpanel" id="day-0502" aria-labelledby="tab-0502">
         <div class="day-head">
           <div class="day-title">
-            <span class="tagline">海灣線與購物</span>
-            <h2>5/2（六）築地、銀座、台場、東京塔夜景</h2>
-            <p class="muted">把吃、買、海景與夜景放同一天，最後一整天很有收尾感。</p>
+            <span class="tagline">淺草到海灣線</span>
+            <h2>5/2（六）淺草寺、隅田川水上巴士、台場、東京塔夜景</h2>
+            <p class="muted">這天改成從淺草一路玩到台場，白天搭水上巴士，晚上接海景與夜景，動線更順。</p>
           </div>
           <div class="card photo">
             <img src="https://images.unsplash.com/photo-1505069446780-4ef442b5207f?auto=format&fit=crop&w=1200&q=82" alt="東京灣與彩虹橋">
@@ -823,26 +927,26 @@
           <div class="item">
             <div class="time">09:00</div>
             <div>
-              <h3>飯店 → 築地場外市場</h3>
-              <p>早餐吃海鮮丼、玉子燒、炸物小吃。週末人多，早點到比較舒服。</p>
-              <div class="route"><strong>交通：</strong>步行到入谷站 → 東京 Metro 日比谷線到築地站，約 20 分鐘。</div>
+              <h3>飯店 → 淺草寺、仲見世通</h3>
+              <p>早上先到淺草寺、雷門、仲見世通走走，吃點小吃、拍街景，節奏會比較輕鬆。</p>
+              <div class="route"><strong>交通：</strong>飯店步行約 12-15 分鐘到<span class="station">入谷站</span> → 東京 Metro 日比谷線到<span class="station">上野站</span> → 轉銀座線到<span class="station">淺草站</span>，全程約 20-30 分鐘。</div>
             </div>
           </div>
           <div class="item">
             <div class="time">11:30</div>
             <div>
-              <h3>銀座逛街</h3>
-              <p>銀座 Six、Uniqlo Ginza、Loft、百貨公司都集中，適合補買伴手禮。</p>
-              <div class="route"><strong>交通：</strong>築地步行到銀座約 12-18 分鐘；或築地站搭日比谷線到東銀座站。</div>
+              <h3>隅田川水上巴士 → 台場</h3>
+              <p>從淺草接隅田川水上巴士到台場，路上可以看東京河岸與海灣景色，這段本身就是行程亮點。</p>
+              <div class="route"><strong>交通：</strong>從淺草寺步行到淺草水上巴士乘船處；搭船前往台場海濱公園或台場周邊碼頭，實際航班時間請以前一天或當天公告為準。</div>
             </div>
           </div>
           <div class="item">
-            <div class="time">14:30</div>
+            <div class="time">14:00</div>
             <div>
               <h3>台場景點 1：台場海濱公園、自由女神像</h3>
               <p>先到海邊散步，拍彩虹大橋、東京灣、市區高樓群，再走到台場自由女神像拍照。這兩個點距離很近，很適合作為台場第一站。</p>
-              <div class="route"><strong>交通：</strong>銀座站搭東京 Metro 銀座線 → 新橋站，轉百合海鷗線 Yurikamome → 台場站或台場海濱公園站，約 30-40 分鐘。</div>
-              <div class="route"><strong>順路走法：</strong>台場海濱公園站 → 台場海濱公園 → 自由女神像 → Aqua City 周邊。</div>
+              <div class="route"><strong>交通：</strong>水上巴士抵達後步行前往台場海濱公園、自由女神像與 Aqua City 周邊。</div>
+              <div class="route"><strong>順路走法：</strong><span class="station">台場海濱公園站</span> → 台場海濱公園 → 自由女神像 → Aqua City 周邊。</div>
             </div>
           </div>
           <div class="item">
@@ -875,14 +979,14 @@
             <div>
               <h3>東京塔夜景</h3>
               <p>想加拍東京塔可到赤羽橋、芝公園一帶；若想輕鬆一點，留在台場吃晚餐和看彩虹大橋夜景就很完整。</p>
-              <div class="route"><strong>交通：</strong>台場搭百合海鷗線到汐留站 → 轉都營大江戶線到赤羽橋站，約 35-45 分鐘。</div>
+              <div class="route"><strong>交通：</strong>台場搭百合海鷗線到<span class="station">汐留站</span> → 轉都營大江戶線到<span class="station">赤羽橋站</span>，約 35-45 分鐘。</div>
             </div>
           </div>
           <div class="item">
             <div class="time">21:00</div>
             <div>
               <h3>回飯店</h3>
-              <div class="route"><strong>交通：</strong>赤羽橋站搭都營大江戶線到上野御徒町站 → 步行到御徒町站搭 JR 山手線到日暮里站，再步行回飯店。</div>
+              <div class="route"><strong>交通：</strong><span class="station">赤羽橋站</span>搭都營大江戶線到<span class="station">上野御徒町站</span> → 步行到<span class="station">御徒町站</span>搭 JR 山手線到<span class="station">鶯谷站</span>，再步行回飯店。</div>
             </div>
           </div>
         </div>
@@ -892,7 +996,7 @@
         <div class="day-head">
           <div class="day-title">
             <span class="tagline">回程日</span>
-            <h2>5/3（日）退房、日暮里到成田 T2</h2>
+            <h2>5/3（日）退房、鶯谷出發到成田 T2</h2>
             <p class="muted">14:10 起飛，建議不要排遠行程。早餐後整理行李，直接往機場最穩。</p>
           </div>
           <div class="card photo">
@@ -904,21 +1008,21 @@
             <div class="time">09:00</div>
             <div>
               <h3>早餐、整理行李</h3>
-              <p>可在飯店周邊便利商店、咖啡店簡單吃，或到日暮里站附近覓食。</p>
+              <p>可在飯店周邊便利商店、咖啡店簡單吃，或到<span class="station">鶯谷站</span>附近覓食。</p>
             </div>
           </div>
           <div class="item">
             <div class="time">10:10</div>
             <div>
-              <h3>飯店 → 日暮里站</h3>
-              <p>步行約 10-12 分鐘。行李多就提早 10 分鐘出門。</p>
+              <h3>飯店 → <span class="station">鶯谷站</span> → <span class="station">日暮里站</span></h3>
+              <p>先步行到<span class="station">鶯谷站</span>約 8-12 分鐘，再搭 JR 山手線一站到<span class="station">日暮里站</span>轉 Skyliner。行李多就提早 10 分鐘出門。</p>
             </div>
           </div>
           <div class="item">
             <div class="time">10:45</div>
             <div>
-              <h3>日暮里 → 成田機場 T2</h3>
-              <div class="route"><strong>快線推薦：</strong>日暮里站搭京成 Skyliner → 成田機場第 2・第 3 航廈站，約 36-41 分鐘。</div>
+              <h3><span class="station">日暮里站</span> → 成田機場 T2</h3>
+              <div class="route"><strong>快線推薦：</strong><span class="station">日暮里站</span>搭京成 Skyliner → <span class="station">成田機場第 2・第 3 航廈站</span>，約 36-41 分鐘。</div>
               <div class="route"><strong>省錢版：</strong>京成本線特急方向列車回成田機場，約 70-85 分鐘。若搭省錢版，建議 09:45-10:00 就從飯店出發。</div>
             </div>
           </div>
@@ -927,6 +1031,63 @@
             <div>
               <h3>抵達成田 T2</h3>
               <p>辦理報到、托運行李、安檢、出境。14:10 起飛時間很剛好，建議不要壓線。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day" role="tabpanel" id="day-food" aria-labelledby="tab-food">
+        <div class="day-head">
+          <div class="day-title">
+            <h2>美食</h2>
+            <p class="muted">把這次已經排進或列入備選的餐廳整理在一起，查地址和安排時段會更方便。</p>
+          </div>
+          <div class="card photo">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=82" alt="東京餐廳與拉麵">
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="item">
+            <div class="time">餐廳</div>
+            <div>
+              <h3>塚田農場 新宿東口店</h3>
+              <p>居酒屋類型，適合想吃得輕鬆一點、又想把晚餐排在新宿站附近時。</p>
+              <div class="route"><strong>地址：</strong>東京都新宿區新宿3-23-2 新宿サンビル地下1F。</div>
+              <div class="route"><strong>交通：</strong><span class="station">新宿站</span>東口步行約 1 分鐘；<span class="station">西武新宿站</span>南口步行約 3 分鐘。</div>
+              <a class="map-link" href="https://shop.tsukadanojo.jp/detail/49/" target="_blank" rel="noreferrer">塚田農場 新宿東口站前店官方資訊</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="time">拉麵</div>
+            <div>
+              <h3>AFURI 原宿</h3>
+              <p>主打清爽系柚子拉麵，適合喜歡比較清爽、不那麼厚重湯頭的人。</p>
+              <div class="route"><strong>地址：</strong>東京都渋谷区千駄ヶ谷3-63-1 グランデフォレスタ 1F。</div>
+              <div class="route"><strong>交通：</strong>從<span class="station">原宿站</span>、竹下通周邊步行約 5-8 分鐘。</div>
+              <a class="map-link" href="https://www.afuri.com/findus/" target="_blank" rel="noreferrer">AFURI 官方店舖資訊</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="time">拉麵</div>
+            <div>
+              <h3>銀座 篝 Kagari 銀座本店</h3>
+              <p>主打雞白湯拉麵，口味偏精緻系，若想吃排隊名店可以考慮這家。</p>
+              <div class="route"><strong>地址：</strong>東京都中央区銀座6-4-12 銀座Aビル1F。</div>
+              <div class="route"><strong>注意：</strong>主打雞白湯拉麵，不能訂位，通常需要排隊。</div>
+              <a class="map-link" href="https://www.bring-you.info/zh-tw/ginzakagari" target="_blank" rel="noreferrer">銀座 篝 銀座本店介紹</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="time">燒肉</div>
+            <div>
+              <h3>叙々苑</h3>
+              <p>這家比較適合排中午，主打商業午餐，通常會比晚餐時段划算很多。如果你想安排一餐燒肉，優先考慮中午最值得。</p>
+              <div class="route"><strong>建議吃法：</strong>可挑你當天動線附近的分店安排，例如新宿、銀座、上野周邊，再依想吃燒肉的那天決定。</div>
+              <div class="route"><strong>備註：</strong>你如果之後決定要哪一家分店，我可以再幫你補進地址、交通與最適合塞進哪一天。</div>
             </div>
           </div>
         </div>
@@ -949,8 +1110,8 @@
             <div class="time">4/29 晚上</div>
             <div>
               <h3>上野阿美橫：藥妝、零食、伴手禮先買一輪</h3>
-              <p>住日暮里很適合把阿美橫當補給站。這裡店多、價格好比，藥妝、保健品、零食、乾果、抹茶點心都好買。</p>
-              <div class="route"><strong>交通：</strong>日暮里站搭 JR 山手線到上野站約 4 分鐘；阿美橫可一路逛到御徒町站，再搭 JR 回日暮里。</div>
+              <p>住在<span class="station">鶯谷站</span>附近也很適合把阿美橫當補給站。這裡店多、價格好比，藥妝、保健品、零食、乾果、抹茶點心都好買。</p>
+              <div class="route"><strong>交通：</strong><span class="station">鶯谷站</span>搭 JR 山手線到<span class="station">上野站</span>約 2 分鐘；阿美橫可一路逛到<span class="station">御徒町站</span>，再搭 JR 回<span class="station">鶯谷站</span>。</div>
               <div class="route"><strong>建議店：</strong>Sundrug 上野阿美橫中央店、Daikoku Drug 上野阿美橫店、Don Quijote 御徒町店。Don Quijote 御徒町店營業到深夜，適合最後補買。</div>
               <a class="map-link" href="https://www.gotokyo.org/en/spot/71/index.html" target="_blank" rel="noreferrer">阿美橫官方旅遊資訊</a>
               <a class="map-link" href="https://www.donki.com/en/store/shop_detail.php?shop_id=639" target="_blank" rel="noreferrer">Don Quijote 御徒町店資訊</a>
@@ -963,19 +1124,17 @@
               <h3>原宿、表參道、澀谷：流行服飾與球鞋</h3>
               <p>這天已經安排原宿、表參道、澀谷，適合看比較年輕、潮流、球鞋、配件類。若早上皇居跑步後體力普通，建議只選澀谷一帶集中逛。</p>
               <div class="route"><strong>建議方向：</strong>原宿竹下通買小物，表參道看品牌與選物，澀谷逛 PARCO、Miyashita Park、藥妝與大型商場。</div>
-              <div class="route"><strong>省力版本：</strong>原宿 → 表參道 → 澀谷，步行可接起來；買太多就直接從澀谷搭 JR 山手線回日暮里。</div>
+              <div class="route"><strong>省力版本：</strong>原宿 → 表參道 → 澀谷，步行可接起來；買太多就直接從澀谷搭 JR 山手線回<span class="station">鶯谷站</span>。</div>
             </div>
           </div>
 
           <div class="item">
             <div class="time">5/2 中午</div>
             <div>
-              <h3>銀座：UNIQLO、GU、MUJI 集中買衣服</h3>
-              <p>銀座最適合一次買齊基本款衣服、內搭、外套、襪子、包包與生活雜貨。UNIQLO 銀座是 1-12 樓大型旗艦店，GU 銀座也很近。</p>
-              <div class="route"><strong>交通：</strong>築地吃完後步行到銀座，或築地站搭日比谷線到東銀座站。逛完再去新橋轉百合海鷗線前往台場。</div>
-              <div class="route"><strong>建議順序：</strong>UNIQLO Ginza → GU Ginza → MUJI Ginza → 銀座周邊藥妝補貨。買太多可先把戰利品放回飯店，再決定要不要去台場。</div>
-              <a class="map-link" href="https://www.ginza.jp/landmark/9743" target="_blank" rel="noreferrer">UNIQLO Ginza 資訊</a>
-              <a class="map-link" href="https://www.ginza.jp/en/shop/24400" target="_blank" rel="noreferrer">GU Ginza 資訊</a>
+              <h3>淺草寺、台場：小物、伴手禮與商場順手買</h3>
+              <p>5/2 改成淺草寺接水上巴士到台場後，購物重點就比較適合放在淺草小物、伴手禮，以及台場商場內順手補買。</p>
+              <div class="route"><strong>建議方向：</strong>淺草可看和風雜貨、伴手禮、零食；台場可逛 Aqua City、DiverCity、Decks，買衣服、角色商品、生活雜貨或補貨。</div>
+              <div class="route"><strong>建議順序：</strong>淺草寺周邊先買輕巧伴手禮 → 搭隅田川水上巴士到台場 → 在台場商場集中逛街。買太多可等晚上回飯店前再整理戰利品。</div>
             </div>
           </div>
 
@@ -983,9 +1142,10 @@
             <div class="time">最後補貨</div>
             <div>
               <h3>藥妝採買清單</h3>
-              <p>建議先拍照列清單，避免現場被貨架迷惑。熱門商品每家價格不一定相同，阿美橫可比價，銀座適合順路補買。</p>
+              <p>建議先拍照列清單，避免現場被貨架迷惑。熱門商品每家價格不一定相同，阿美橫可比價；若 5/2 在台場商場看到合適藥妝店，也可順路補買。</p>
               <div class="route"><strong>常買類別：</strong>止痛藥、感冒藥、胃藥、眼藥水、痠痛貼布、維他命、面膜、防曬、洗面乳、護唇膏、休足時間、零食與茶包。</div>
               <div class="route"><strong>注意：</strong>藥品請確認成分與用量，買之前看清楚是否適合自己。免稅商品通常會封袋，回台前不要拆封使用。</div>
+              <div class="route"><strong>唐吉訶德折扣券：</strong>結帳前出示即可，建議先存手機方便現場快速開啟。<a href="https://japanportal.donki-global.com/coupon/cp001_zhtw.html" target="_blank" rel="noreferrer">點我開啟折扣券</a></div>
             </div>
           </div>
         </div>
@@ -1009,7 +1169,7 @@
             <p>離日比谷公園、櫻田門、二重橋前一帶很近，最適合接你原本排的皇居外苑跑步路線。</p>
             <p><strong>營業時間：</strong>平日 7:00-22:00，最終受付 21:00；土日祝 7:00-20:00，最終受付 19:00；定休日なし。</p>
             <p><strong>地址：</strong>東京都千代田区有楽町一丁目1番2号 東京ミッドタウン日比谷 MB1F。</p>
-            <a class="map-link" href="https://www.raffine-rs.com/shop-neo" target="_blank" rel="noreferrer">官方網站</a>
+              <a class="map-link" href="https://www.raffine-rs.com/shop-neo" target="_blank" rel="noreferrer">官方網站</a>
             <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%83%83%E3%83%89%E3%82%BF%E3%82%A6%E3%83%B3%E6%97%A5%E6%AF%94%E8%B0%B7+MB1F" target="_blank" rel="noreferrer">Google Maps</a>
           </div>
 
@@ -1048,15 +1208,15 @@
       <div class="note-list">
         <div class="note">
           <b>成田進出</b>
-          <p>Skyliner 最適合帶行李往返日暮里，速度快且座位固定。若想省錢，京成本線特急可用時間換預算。</p>
+          <p>Skyliner 最適合帶行李往返<span class="station">日暮里站</span>，再轉 JR 山手線一站到<span class="station">鶯谷站</span>；速度快且座位固定。若想省錢，京成本線特急可用時間換預算。</p>
         </div>
         <div class="note">
           <b>市區交通</b>
-          <p>東京 Metro、都營地鐵、JR 山手線都會用到。只買 Subway Ticket 時，JR 山手線不含在內，進出日暮里常仍需刷 IC 卡。</p>
+          <p>東京 Metro、都營地鐵、JR 山手線都會用到。只買 Subway Ticket 時，JR 山手線不含在內，進出<span class="station">鶯谷站</span>與<span class="station">日暮里站</span>仍需刷 IC 卡。</p>
         </div>
         <div class="note">
           <b>行李策略</b>
-          <p>4/28 抵達先進飯店。5/3 回程不要排遠點，日暮里到成田的路線很順，留足機場時間最重要。</p>
+          <p>4/28 抵達先進飯店。5/3 回程不要排遠點，從<span class="station">鶯谷站</span>出發到<span class="station">日暮里站</span>轉 Skyliner 去成田的路線很順，留足機場時間最重要。</p>
         </div>
       </div>
       <div class="pill-row">
@@ -1065,9 +1225,17 @@
     </section>
 
     <section class="source">
+      <h2>JR 範圍圖</h2>
+      <figure class="note-figure">
+        <img src="https://nicklee.tw/attachments/kanto/ticket/tokunai_pass/tokunai_pass_map-s.gif" alt="東京都市地區周遊券使用範圍示意圖">
+        <figcaption>圖片來源：小氣少年的部落格 Tokunai Pass 文章，作為 JR 東京都市地區周遊券使用範圍參考。</figcaption>
+      </figure>
+    </section>
+
+    <section class="source">
       <h2>查詢依據</h2>
-      <p>交通時間會因當日班次與施工調整，出發前請再用 Google Maps、Japan Transit Planner 或車站公告確認。</p>
-      <p>參考：<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/us/traffic/skyliner_0226.php" target="_blank" rel="noreferrer">京成 Skyliner 路線與時刻資訊</a>、<a href="https://www.tokyometro.jp/en/ticket/travel/index.html" target="_blank" rel="noreferrer">Tokyo Subway Ticket 官方資訊</a>、<a href="https://www.tokyometro.jp/station/pdf/202006/202006_number_tcn.pdf" target="_blank" rel="noreferrer">Tokyo Metro 官方地鐵圖 PDF</a>、<a href="https://www.jreast.co.jp/multi/en/welcomesuica/purchase.html" target="_blank" rel="noreferrer">JR East Welcome Suica 官方資訊</a>、<a href="https://www.hotels.com/ho3818400832/hotel-komachi-higashi-nippori/" target="_blank" rel="noreferrer">HOTEL KOMACHI Higashi Nippori 周邊車站資訊</a>、<a href="https://www.kkday.com/zh-tw/product/150665-mount-fuji-tour-lake-kawaguchi-tenjozan-park-ropeway-tokyo?cid=4904&ud1=detail-share&ud2=app-ios" target="_blank" rel="noreferrer">KKday 富士山一日遊行程頁</a>、<a href="https://fujiyoshida.net/en/see-and-do/410" target="_blank" rel="noreferrer">富士吉田官方本町通資訊</a>、<a href="https://www.gltjp.com/zh-hant/article/item/20302/" target="_blank" rel="noreferrer">好運日本行台場景點資訊</a>、<a href="https://www.gotokyo.org/en/spot/71/index.html" target="_blank" rel="noreferrer">GO TOKYO 阿美橫資訊</a>、<a href="https://www.ginza.jp/landmark/9743" target="_blank" rel="noreferrer">UNIQLO Ginza 資訊</a>、<a href="https://www.ginza.jp/en/shop/24400" target="_blank" rel="noreferrer">GU Ginza 資訊</a>、<a href="https://www.donki.com/en/store/shop_detail.php?shop_id=639" target="_blank" rel="noreferrer">Don Quijote 御徒町店資訊</a>。</p>
+            <p>交通時間會因當日班次與施工調整，出發前請再用 Google Maps、Japan Transit Planner 或車站公告確認。</p>
+            <p>參考：<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/us/traffic/skyliner_0226.php" target="_blank" rel="noreferrer">京成 Skyliner 路線與時刻資訊</a>、<a href="https://www.tokyometro.jp/en/ticket/travel/index.html" target="_blank" rel="noreferrer">Tokyo Subway Ticket 官方資訊</a>、<a href="https://www.tokyometro.jp/station/pdf/202006/202006_number_tcn.pdf" target="_blank" rel="noreferrer">Tokyo Metro 官方地鐵圖 PDF</a>、<a href="https://www.jreast.co.jp/multi/en/welcomesuica/purchase.html" target="_blank" rel="noreferrer">JR East Welcome Suica 官方資訊</a>、<a href="https://www.hotels.com/ho3818400832/hotel-komachi-higashi-nippori/" target="_blank" rel="noreferrer">HOTEL KOMACHI Higashi Nippori 周邊車站資訊</a>、<a href="https://www.kkday.com/zh-tw/product/150665-mount-fuji-tour-lake-kawaguchi-tenjozan-park-ropeway-tokyo?cid=4904&ud1=detail-share&ud2=app-ios" target="_blank" rel="noreferrer">KKday 富士山一日遊行程頁</a>、<a href="https://fujiyoshida.net/en/see-and-do/410" target="_blank" rel="noreferrer">富士吉田官方本町通資訊</a>、<a href="https://www.gltjp.com/zh-hant/article/item/20302/" target="_blank" rel="noreferrer">好運日本行台場景點資訊</a>、<a href="https://www.gotokyo.org/en/spot/71/index.html" target="_blank" rel="noreferrer">GO TOKYO 阿美橫資訊</a>、<a href="https://www.ginza.jp/landmark/9743" target="_blank" rel="noreferrer">UNIQLO Ginza 資訊</a>、<a href="https://www.ginza.jp/en/shop/24400" target="_blank" rel="noreferrer">GU Ginza 資訊</a>、<a href="https://www.donki.com/en/store/shop_detail.php?shop_id=639" target="_blank" rel="noreferrer">Don Quijote 御徒町店資訊</a>。</p>
     </section>
   </main>
 
