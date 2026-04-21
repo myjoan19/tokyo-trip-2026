@@ -314,6 +314,10 @@
       background: #fff1f4;
     }
 
+    .note-dessert {
+      background: #f6ede3;
+    }
+
     .note-izakaya .route {
       background: #fff4bf;
       border-color: #eadb8b;
@@ -322,6 +326,28 @@
     .note-yakiniku .route {
       background: #ffe3ea;
       border-color: #efbccb;
+    }
+
+    .note-dessert .route {
+      background: #efe0d0;
+      border-color: #d9c2ab;
+    }
+
+    #day-food .note-list {
+      align-items: start;
+    }
+
+    #day-food .food-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .9fr .9fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    #day-food .food-stack {
+      display: grid;
+      gap: 12px;
+      align-content: start;
     }
 
     .note b {
@@ -1087,8 +1113,8 @@
         <h2>美食</h2>
         <p class="muted">用分類整理店名與地址，直接查就好。</p>
 
-        <div class="note-list">
-          <div class="note">
+        <div class="food-grid">
+          <div class="note note-ramen">
             <b>拉麵</b>
             <div class="route"><strong>1. AFURI 原宿：</strong>東京都渋谷区千駄ヶ谷3-63-1 グランデフォレスタ 1F。</div>
             <div class="route"><strong>2. 銀座篝 Kagari 銀座本店：</strong>東京都中央区銀座6-4-12 銀座Aビル1F。</div>
@@ -1107,10 +1133,18 @@
             <a class="map-link" href="https://www.bring-you.info/zh-tw/ginzakagari" target="_blank" rel="noreferrer">銀座 篝 銀座本店介紹</a>
           </div>
 
-          <div class="note note-izakaya">
-            <b>居酒屋</b>
-            <div class="route"><strong>塚田農場 新宿東口店：</strong>東京都新宿區新宿3-23-2 新宿サンビル地下1F。</div>
-            <a class="map-link" href="https://shop.tsukadanojo.jp/detail/49/" target="_blank" rel="noreferrer">塚田農場 新宿東口站前店官方資訊</a>
+          <div class="food-stack">
+            <div class="note note-izakaya">
+              <b>居酒屋</b>
+              <div class="route"><strong>塚田農場 新宿東口店：</strong>東京都新宿區新宿3-23-2 新宿サンビル地下1F。</div>
+              <a class="map-link" href="https://shop.tsukadanojo.jp/detail/49/" target="_blank" rel="noreferrer">塚田農場 新宿東口站前店官方資訊</a>
+            </div>
+
+            <div class="note note-dessert">
+              <b>點心</b>
+              <div class="route"><strong>HARBS：</strong>分店很多，之後可再依新宿、銀座、上野周邊分店補地址。</div>
+              <div class="route"><strong>主打：</strong>水果千層蛋糕、下午茶、甜點。</div>
+            </div>
           </div>
 
           <div class="note note-yakiniku">
