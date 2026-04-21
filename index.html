@@ -306,6 +306,24 @@
       padding: 14px;
     }
 
+    .note-izakaya {
+      background: #fff8dc;
+    }
+
+    .note-yakiniku {
+      background: #fff1f4;
+    }
+
+    .note-izakaya .route {
+      background: #fff4bf;
+      border-color: #eadb8b;
+    }
+
+    .note-yakiniku .route {
+      background: #ffe3ea;
+      border-color: #efbccb;
+    }
+
     .note b {
       display: block;
       color: var(--gold);
@@ -557,6 +575,35 @@
             <a class="map-link" href="https://www.tokyometro.jp/station/pdf/202006/202006_number_tcn.pdf" target="_blank" rel="noreferrer">Tokyo Metro 官方地鐵圖 PDF</a>
           </div>
         </div>
+
+        <h3 class="section-label">交通票券與提醒</h3>
+        <div class="note-list">
+          <div class="note">
+            <b>成田進出</b>
+            <p>Skyliner 最適合帶行李往返<span class="station">日暮里站</span>，再轉 JR 山手線一站到<span class="station">鶯谷站</span>；速度快且座位固定。若想省錢，京成本線特急可用時間換預算。</p>
+          </div>
+          <div class="note">
+            <b>市區交通</b>
+            <p>東京 Metro、都營地鐵、JR 山手線都會用到。只買 Subway Ticket 時，JR 山手線不含在內，進出<span class="station">鶯谷站</span>與<span class="station">日暮里站</span>仍需刷 IC 卡。</p>
+          </div>
+          <div class="note">
+            <b>行李策略</b>
+            <p>4/28 抵達先進飯店。5/3 回程不要排遠點，從<span class="station">鶯谷站</span>出發到<span class="station">日暮里站</span>轉 Skyliner 去成田的路線很順，留足機場時間最重要。</p>
+          </div>
+        </div>
+        <div class="pill-row">
+          <button class="print-button" onclick="window.print()">列印 / 存成 PDF</button>
+        </div>
+
+        <h3 class="section-label">JR 範圍圖</h3>
+        <figure class="note-figure">
+          <img src="https://nicklee.tw/attachments/kanto/ticket/tokunai_pass/tokunai_pass_map-s.gif" alt="東京都市地區周遊券使用範圍示意圖">
+          <figcaption>圖片來源：小氣少年的部落格 Tokunai Pass 文章，作為 JR 東京都市地區周遊券使用範圍參考。</figcaption>
+        </figure>
+
+        <h3 class="section-label">查詢依據</h3>
+        <p>交通時間會因當日班次與施工調整，出發前請再用 Google Maps、Japan Transit Planner 或車站公告確認。</p>
+        <p>參考：<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/us/traffic/skyliner_0226.php" target="_blank" rel="noreferrer">京成 Skyliner 路線與時刻資訊</a>、<a href="https://www.tokyometro.jp/en/ticket/travel/index.html" target="_blank" rel="noreferrer">Tokyo Subway Ticket 官方資訊</a>、<a href="https://www.tokyometro.jp/station/pdf/202006/202006_number_tcn.pdf" target="_blank" rel="noreferrer">Tokyo Metro 官方地鐵圖 PDF</a>、<a href="https://www.jreast.co.jp/multi/en/welcomesuica/purchase.html" target="_blank" rel="noreferrer">JR East Welcome Suica 官方資訊</a>、<a href="https://www.hotels.com/ho3818400832/hotel-komachi-higashi-nippori/" target="_blank" rel="noreferrer">HOTEL KOMACHI Higashi Nippori 周邊車站資訊</a>、<a href="https://www.kkday.com/zh-tw/product/150665-mount-fuji-tour-lake-kawaguchi-tenjozan-park-ropeway-tokyo?cid=4904&ud1=detail-share&ud2=app-ios" target="_blank" rel="noreferrer">KKday 富士山一日遊行程頁</a>、<a href="https://fujiyoshida.net/en/see-and-do/410" target="_blank" rel="noreferrer">富士吉田官方本町通資訊</a>、<a href="https://www.gltjp.com/zh-hant/article/item/20302/" target="_blank" rel="noreferrer">好運日本行台場景點資訊</a>、<a href="https://www.gotokyo.org/en/spot/71/index.html" target="_blank" rel="noreferrer">GO TOKYO 阿美橫資訊</a>、<a href="https://www.ginza.jp/landmark/9743" target="_blank" rel="noreferrer">UNIQLO Ginza 資訊</a>、<a href="https://www.ginza.jp/en/shop/24400" target="_blank" rel="noreferrer">GU Ginza 資訊</a>、<a href="https://www.donki.com/en/store/shop_detail.php?shop_id=639" target="_blank" rel="noreferrer">Don Quijote 御徒町店資訊</a>。</p>
       </article>
 
       <article class="day" role="tabpanel" id="day-0428" aria-labelledby="tab-0428">
@@ -1037,58 +1084,39 @@
       </article>
 
       <article class="day" role="tabpanel" id="day-food" aria-labelledby="tab-food">
-        <div class="day-head">
-          <div class="day-title">
-            <h2>美食</h2>
-            <p class="muted">把這次已經排進或列入備選的餐廳整理在一起，查地址和安排時段會更方便。</p>
-          </div>
-          <div class="card photo">
-            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=82" alt="東京餐廳與拉麵">
-          </div>
-        </div>
+        <h2>美食</h2>
+        <p class="muted">用分類整理店名與地址，直接查就好。</p>
 
-        <div class="timeline">
-          <div class="item">
-            <div class="time">餐廳</div>
-            <div>
-              <h3>塚田農場 新宿東口店</h3>
-              <p>居酒屋類型，適合想吃得輕鬆一點、又想把晚餐排在新宿站附近時。</p>
-              <div class="route"><strong>地址：</strong>東京都新宿區新宿3-23-2 新宿サンビル地下1F。</div>
-              <div class="route"><strong>交通：</strong><span class="station">新宿站</span>東口步行約 1 分鐘；<span class="station">西武新宿站</span>南口步行約 3 分鐘。</div>
-              <a class="map-link" href="https://shop.tsukadanojo.jp/detail/49/" target="_blank" rel="noreferrer">塚田農場 新宿東口站前店官方資訊</a>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="time">拉麵</div>
-            <div>
-              <h3>AFURI 原宿</h3>
-              <p>主打清爽系柚子拉麵，適合喜歡比較清爽、不那麼厚重湯頭的人。</p>
-              <div class="route"><strong>地址：</strong>東京都渋谷区千駄ヶ谷3-63-1 グランデフォレスタ 1F。</div>
-              <div class="route"><strong>交通：</strong>從<span class="station">原宿站</span>、竹下通周邊步行約 5-8 分鐘。</div>
-              <a class="map-link" href="https://www.afuri.com/findus/" target="_blank" rel="noreferrer">AFURI 官方店舖資訊</a>
-            </div>
+        <div class="note-list">
+          <div class="note">
+            <b>拉麵</b>
+            <div class="route"><strong>1. AFURI 原宿：</strong>東京都渋谷区千駄ヶ谷3-63-1 グランデフォレスタ 1F。</div>
+            <div class="route"><strong>2. 銀座篝 Kagari 銀座本店：</strong>東京都中央区銀座6-4-12 銀座Aビル1F。</div>
+            <div class="route"><strong>3. 拉麵屋 金色不如歸：</strong>東京都新宿区新宿2-4-1 第22宮庭マンション1F。</div>
+            <div class="route"><strong>4. 東京入鹿TOKYO 六本木店：</strong>東京都中央區銀座3-14-2。</div>
+            <div class="route"><strong>5. 鴨 to 蔥（らーめん 鴨to葱）：</strong>東京都品川區南大井6-11-10。</div>
+            <div class="route"><strong>6. Japanese Soba Noodles 蔦：</strong>東京都渋谷区西原3-2-4 フロンティア代々木上原B1。</div>
+            <div class="route"><strong>7. 銀座八五：</strong>東京都中央區銀座3-14-2。</div>
+            <div class="route"><strong>8. RAMEN TATSUNOYA 龍の家拉麵：</strong>東京都新宿区西新宿7-4-5 富士野ビル 1F。</div>
+            <div class="route"><strong>9. 麵創房 無敵家：</strong>東京豊島区南池袋1丁目17-1 崎本ビル1F。</div>
+            <div class="route"><strong>10. Ramen Afro Beats：</strong>東京都新宿區新宿1-16-10。</div>
+            <div class="route"><strong>11. 風雲兒：</strong>東京都渋谷区代々木2-14-3 北斗第一ビルB1F。</div>
+            <div class="route"><strong>12. 中華拉麵 多賀野：</strong>東京都品川区中延2-15-10。</div>
+            <a class="map-link" href="https://www.klook.com/zh-TW/blog/ramen-tokyo/" target="_blank" rel="noreferrer">Klook 東京 10 家拉麵整理</a>
+            <a class="map-link" href="https://www.afuri.com/findus/" target="_blank" rel="noreferrer">AFURI 官方店舖資訊</a>
+            <a class="map-link" href="https://www.bring-you.info/zh-tw/ginzakagari" target="_blank" rel="noreferrer">銀座 篝 銀座本店介紹</a>
           </div>
 
-          <div class="item">
-            <div class="time">拉麵</div>
-            <div>
-              <h3>銀座 篝 Kagari 銀座本店</h3>
-              <p>主打雞白湯拉麵，口味偏精緻系，若想吃排隊名店可以考慮這家。</p>
-              <div class="route"><strong>地址：</strong>東京都中央区銀座6-4-12 銀座Aビル1F。</div>
-              <div class="route"><strong>注意：</strong>主打雞白湯拉麵，不能訂位，通常需要排隊。</div>
-              <a class="map-link" href="https://www.bring-you.info/zh-tw/ginzakagari" target="_blank" rel="noreferrer">銀座 篝 銀座本店介紹</a>
-            </div>
+          <div class="note note-izakaya">
+            <b>居酒屋</b>
+            <div class="route"><strong>塚田農場 新宿東口店：</strong>東京都新宿區新宿3-23-2 新宿サンビル地下1F。</div>
+            <a class="map-link" href="https://shop.tsukadanojo.jp/detail/49/" target="_blank" rel="noreferrer">塚田農場 新宿東口站前店官方資訊</a>
           </div>
 
-          <div class="item">
-            <div class="time">燒肉</div>
-            <div>
-              <h3>叙々苑</h3>
-              <p>這家比較適合排中午，主打商業午餐，通常會比晚餐時段划算很多。如果你想安排一餐燒肉，優先考慮中午最值得。</p>
-              <div class="route"><strong>建議吃法：</strong>可挑你當天動線附近的分店安排，例如新宿、銀座、上野周邊，再依想吃燒肉的那天決定。</div>
-              <div class="route"><strong>備註：</strong>你如果之後決定要哪一家分店，我可以再幫你補進地址、交通與最適合塞進哪一天。</div>
-            </div>
+          <div class="note note-yakiniku">
+            <b>燒肉</b>
+            <div class="route"><strong>叙々苑：</strong>分店未定，之後可再依新宿、銀座、上野周邊分店補地址。</div>
+            <div class="route"><strong>主打：</strong>商業午餐，中午通常比晚餐更划算。</div>
           </div>
         </div>
       </article>
@@ -1203,40 +1231,6 @@
       </article>
     </section>
 
-    <section>
-      <h2>交通票券與提醒</h2>
-      <div class="note-list">
-        <div class="note">
-          <b>成田進出</b>
-          <p>Skyliner 最適合帶行李往返<span class="station">日暮里站</span>，再轉 JR 山手線一站到<span class="station">鶯谷站</span>；速度快且座位固定。若想省錢，京成本線特急可用時間換預算。</p>
-        </div>
-        <div class="note">
-          <b>市區交通</b>
-          <p>東京 Metro、都營地鐵、JR 山手線都會用到。只買 Subway Ticket 時，JR 山手線不含在內，進出<span class="station">鶯谷站</span>與<span class="station">日暮里站</span>仍需刷 IC 卡。</p>
-        </div>
-        <div class="note">
-          <b>行李策略</b>
-          <p>4/28 抵達先進飯店。5/3 回程不要排遠點，從<span class="station">鶯谷站</span>出發到<span class="station">日暮里站</span>轉 Skyliner 去成田的路線很順，留足機場時間最重要。</p>
-        </div>
-      </div>
-      <div class="pill-row">
-        <button class="print-button" onclick="window.print()">列印 / 存成 PDF</button>
-      </div>
-    </section>
-
-    <section class="source">
-      <h2>JR 範圍圖</h2>
-      <figure class="note-figure">
-        <img src="https://nicklee.tw/attachments/kanto/ticket/tokunai_pass/tokunai_pass_map-s.gif" alt="東京都市地區周遊券使用範圍示意圖">
-        <figcaption>圖片來源：小氣少年的部落格 Tokunai Pass 文章，作為 JR 東京都市地區周遊券使用範圍參考。</figcaption>
-      </figure>
-    </section>
-
-    <section class="source">
-      <h2>查詢依據</h2>
-            <p>交通時間會因當日班次與施工調整，出發前請再用 Google Maps、Japan Transit Planner 或車站公告確認。</p>
-            <p>參考：<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/us/traffic/skyliner_0226.php" target="_blank" rel="noreferrer">京成 Skyliner 路線與時刻資訊</a>、<a href="https://www.tokyometro.jp/en/ticket/travel/index.html" target="_blank" rel="noreferrer">Tokyo Subway Ticket 官方資訊</a>、<a href="https://www.tokyometro.jp/station/pdf/202006/202006_number_tcn.pdf" target="_blank" rel="noreferrer">Tokyo Metro 官方地鐵圖 PDF</a>、<a href="https://www.jreast.co.jp/multi/en/welcomesuica/purchase.html" target="_blank" rel="noreferrer">JR East Welcome Suica 官方資訊</a>、<a href="https://www.hotels.com/ho3818400832/hotel-komachi-higashi-nippori/" target="_blank" rel="noreferrer">HOTEL KOMACHI Higashi Nippori 周邊車站資訊</a>、<a href="https://www.kkday.com/zh-tw/product/150665-mount-fuji-tour-lake-kawaguchi-tenjozan-park-ropeway-tokyo?cid=4904&ud1=detail-share&ud2=app-ios" target="_blank" rel="noreferrer">KKday 富士山一日遊行程頁</a>、<a href="https://fujiyoshida.net/en/see-and-do/410" target="_blank" rel="noreferrer">富士吉田官方本町通資訊</a>、<a href="https://www.gltjp.com/zh-hant/article/item/20302/" target="_blank" rel="noreferrer">好運日本行台場景點資訊</a>、<a href="https://www.gotokyo.org/en/spot/71/index.html" target="_blank" rel="noreferrer">GO TOKYO 阿美橫資訊</a>、<a href="https://www.ginza.jp/landmark/9743" target="_blank" rel="noreferrer">UNIQLO Ginza 資訊</a>、<a href="https://www.ginza.jp/en/shop/24400" target="_blank" rel="noreferrer">GU Ginza 資訊</a>、<a href="https://www.donki.com/en/store/shop_detail.php?shop_id=639" target="_blank" rel="noreferrer">Don Quijote 御徒町店資訊</a>。</p>
-    </section>
   </main>
 
   <button class="back-to-top" type="button" aria-label="回到最上方">↑</button>
